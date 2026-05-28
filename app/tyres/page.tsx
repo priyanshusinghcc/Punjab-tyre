@@ -17,12 +17,12 @@ type SearchParams = {
   budget?: string;
 };
 
-export default function TyresPage({
+export default async function TyresPage({
   searchParams,
 }: {
-  searchParams?: SearchParams;
+  searchParams: Promise<SearchParams>;
 }) {
-  const params = searchParams ?? {};
+  const params = (await searchParams) ?? {};
   const vehicleSummary =
     params.carBrand && params.carModel && params.carVariant
       ? `${params.carBrand} ${params.carModel} ${params.carVariant}`
