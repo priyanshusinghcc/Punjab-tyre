@@ -1,0 +1,50 @@
+import { TyreListing } from "@/components/tyre-listing";
+import { tyreInventory } from "@/lib/data";
+
+type SearchParams = {
+  brand?: string;
+  width?: string;
+  profile?: string;
+  rim?: string;
+  usage?: string;
+  minPrice?: string;
+  maxPrice?: string;
+  sort?: string;
+  vehicle?: string;
+  type?: string;
+  carBrand?: string;
+  carModel?: string;
+  carVariant?: string;
+  budget?: string;
+};
+
+export default function TyresPage({
+  searchParams
+}: {
+  searchParams?: SearchParams;
+}) {
+  const params = searchParams ?? {};
+  const vehicleSummary =
+    params.carBrand && params.carModel && params.carVariant
+      ? `${params.carBrand} ${params.carModel} ${params.carVariant}`
+      : params.vehicle || "";
+
+  return (
+    <main className="container-shell py-10">
+      <div className="mb-8">
+        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#E53935]">Tyre listing</p>
+        <h1 className="mt-2 text-3xl font-bold text-black">Find the right tyre fast</h1>
+        <p className="mt-3 max-w-3xl text-sm leading-7 text-black/65">
+          Filter by brand, size, usage, and budget. Every product card is built to push WhatsApp
+          inquiry instead of checkout friction.
+        </p>
+      </div>
+
+      <TyreListing
+        items={tyreInventory}
+        initialQuery={params}
+        vehicleSummary={vehicleSummary}
+      />
+    </main>
+  );
+}
