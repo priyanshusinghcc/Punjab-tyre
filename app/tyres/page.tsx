@@ -1,4 +1,3 @@
-import { TyreListing } from "@/components/tyre-listing";
 import { tyreInventory } from "@/lib/data";
 
 type SearchParams = {
@@ -19,7 +18,7 @@ type SearchParams = {
 };
 
 export default function TyresPage({
-  searchParams
+  searchParams,
 }: {
   searchParams?: SearchParams;
 }) {
@@ -32,19 +31,25 @@ export default function TyresPage({
   return (
     <main className="container-shell py-10">
       <div className="mb-8">
-        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#E53935]">Tyre listing</p>
-        <h1 className="mt-2 text-3xl font-bold text-black">Find the right tyre fast</h1>
+        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#E53935]">
+          Tyre listing
+        </p>
+        <h1 className="mt-2 text-3xl font-bold text-black">
+          Find the right tyre fast
+        </h1>
         <p className="mt-3 max-w-3xl text-sm leading-7 text-black/65">
-          Filter by brand, size, usage, and budget. Every product card is built to push WhatsApp
-          inquiry instead of checkout friction.
+          Filter by brand, size, usage, and budget. Every product card is built
+          to push WhatsApp inquiry instead of checkout friction.
         </p>
       </div>
 
-      <TyreListing
-        items={tyreInventory}
-        initialQuery={params}
-        vehicleSummary={vehicleSummary}
-      />
+      <div className="rounded-2xl border border-black/10 p-6">
+        <p className="text-lg font-semibold">catalogue coming soon</p>
+
+        <p className="mt-2 text-sm text-black/60">
+          Inventory integration is under development.
+        </p>
+      </div>
     </main>
   );
 }
