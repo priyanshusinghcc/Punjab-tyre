@@ -6,11 +6,11 @@ export function formatINR(value: number) {
   return new Intl.NumberFormat("en-IN", {
     style: "currency",
     currency: "INR",
-    maximumFractionDigits: 0
+    maximumFractionDigits: 0,
   }).format(value);
 }
 
 export function buildWhatsAppLink(message: string) {
-  const phone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919999999999";
+  const phone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919896053958";
   return `https://wa.me/${phone.replace(/\D/g, "")}?text=${encodeURIComponent(message)}`;
 }

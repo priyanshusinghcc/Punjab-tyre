@@ -109,7 +109,8 @@ export function FitmentSection() {
           </div>
 
           <p className="mt-4 text-[11px] text-white/30">
-            Genuine products · Same-day fitment · Trusted since 1990
+            Genuine products · Same-day fitment · Trusted since 1949. Visit us
+            at Rohtak for expert tyre solutions and unbeatable service.
           </p>
         </motion.div>
       </div>
