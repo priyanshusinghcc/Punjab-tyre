@@ -1,3 +1,6 @@
+// FILE: components/brand-section.tsx
+// Drop this into your project at: components/brand-section.tsx
+
 import { Badge } from "@/components/ui/badge";
 import { bikeTyreBrands, carTyreBrands } from "@/lib/data";
 import { FadeUp } from "@/components/animations";
@@ -42,11 +45,12 @@ export function BrandSection() {
         </p>
 
         <h2 className="mt-2 text-3xl font-black text-black md:text-4xl">
-          Premium tyre brands
+          Inventory-backed brand selection
         </h2>
 
         <p className="mt-3 max-w-lg text-sm leading-relaxed text-black/50">
-          Genuine tyres from trusted manufacturers for cars and bikes.
+          We stock genuine tyres from India&apos;s most trusted manufacturers —
+          for every vehicle type, usage, and budget.
         </p>
       </FadeUp>
 
