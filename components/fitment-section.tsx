@@ -22,9 +22,10 @@ export function FitmentSection() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="relative min-h-[340px] overflow-hidden lg:min-h-[480px]"
         >
+          {/* TODO: replace with real photo of shop interior/team supplied by owner */}
           <Image
-            src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?auto=format&fit=crop&w=1200&q=80"
-            alt="Punjab Tyre fitment workshop in Rohtak"
+            src="/images/pt-front.jpg"
+            alt="Punjab Tyre storefront and workshop in Rohtak"
             fill
             className="object-cover transition-transform duration-700 hover:scale-[1.03]"
           />
@@ -54,7 +55,7 @@ export function FitmentSection() {
             <br />
             Rohtak
           </h2>
-          <p className="mt-4 text-sm leading-7 text-white/50">
+          <p className="mt-4 text-sm leading-7 text-white/80">
             77+ years of trusted service. Genuine tyre brands, expert advice,
             and fast same-day fitment at our Rohtak store.
           </p>
@@ -64,10 +65,10 @@ export function FitmentSection() {
             <div className="flex items-start gap-3 rounded-2xl border border-white/8 bg-white/[0.04] px-4 py-3.5">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#E53935]" />
               <div>
-                <div className="text-xs font-semibold text-white/80">
+                <div className="text-xs font-semibold text-white/90">
                   Location
                 </div>
-                <div className="mt-0.5 text-xs text-white/45">
+                <div className="mt-0.5 text-xs text-white/70">
                   Punjab Tyre, Rohtak, Haryana
                 </div>
               </div>
@@ -75,10 +76,10 @@ export function FitmentSection() {
             <div className="flex items-start gap-3 rounded-2xl border border-white/8 bg-white/[0.04] px-4 py-3.5">
               <PhoneCall className="mt-0.5 h-4 w-4 shrink-0 text-[#E53935]" />
               <div>
-                <div className="text-xs font-semibold text-white/80">
+                <div className="text-xs font-semibold text-white/90">
                   WhatsApp Quote
                 </div>
-                <div className="mt-0.5 text-xs text-white/45">
+                <div className="mt-0.5 text-xs text-white/70">
                   Share car model, tyre size, and budget for an instant price.
                 </div>
               </div>
@@ -91,24 +92,24 @@ export function FitmentSection() {
               href={siteCopy.mapsUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-3 text-sm font-medium text-white/70 transition-colors hover:border-white/30 hover:text-white"
+              className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-3 text-sm font-medium text-white/80 transition-colors hover:border-white/30 hover:text-white"
             >
               View Location
             </a>
             <a
               href={buildWhatsAppLink(
-                "Hi, I want the best price for tyres for my car. Please assist.",
+                "Hi, I want to inquire about tyre availability and fitment at your Rohtak store.",
               )}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-[#E53935] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[#E53935]/20 transition-all hover:bg-[#c72f2b] hover:shadow-xl active:scale-[0.98]"
             >
               <PhoneCall className="h-4 w-4" />
-              Get Best Price on WhatsApp
+              Ask us in-store
             </a>
           </div>
 
-          <p className="mt-4 text-[11px] text-white/30">
+          <p className="mt-4 text-[11px] text-white/60">
             Genuine products · Same-day fitment · Trusted since 1949. Visit us
             at Rohtak for expert tyre solutions and unbeatable service.
           </p>

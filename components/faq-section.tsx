@@ -11,7 +11,7 @@ export function FAQSection() {
     <section className="bg-[#f7f7f7]">
       <div className="container-shell py-20">
         <FadeUp>
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-black/40">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#E53935]">
             FAQ
           </p>
           <h2 className="mt-2 text-3xl font-black text-black md:text-4xl">

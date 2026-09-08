@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 40" width="150" height="40">
+  <g transform="translate(6, 6)">
+    <!-- Red dot / emblem -->
+    <circle cx="10" cy="14" r="8" fill="#E53935" />
+    <path d="M7 14 L13 14" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+    <!-- UNO MINDA text -->
+    <text x="24" y="15" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="900" letter-spacing="0.5" fill="#1B365D">
+      UNO MINDA
+    </text>
+    <text x="24" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="7" font-weight="700" letter-spacing="0.5" fill="#E53935">
+      ENGINEERING PASSION
+    </text>
+  </g>
+</svg>

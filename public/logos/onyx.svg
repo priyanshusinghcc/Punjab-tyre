@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 42" width="160" height="42">
+  <g transform="translate(18, 3)">
+    <!-- O with horizontal split -->
+    <g transform="translate(0, 2)">
+      <rect x="0" y="0" width="22" height="19" rx="4" fill="#111111" />
+      <rect x="4.5" y="3.5" width="13" height="4" rx="1" fill="#FFFFFF" />
+      <rect x="4.5" y="11.5" width="13" height="4" rx="1" fill="#FFFFFF" />
+      <line x1="0" y1="9.5" x2="22" y2="9.5" stroke="#FFFFFF" stroke-width="1.6" />
+    </g>
+
+    <!-- N -->
+    <path d="M28 2 L34 2 L44 17.5 L44 2 L49 2 L49 21 L43 21 L33 5.5 L33 21 L28 21 Z" fill="#111111" />
+
+    <!-- Y -->
+    <path d="M54 2 L60.5 2 L65.5 11 L70.5 2 L77 2 L69 13.5 L69 21 L63 21 L63 13.5 Z" fill="#111111" />
+
+    <!-- X -->
+    <path d="M82 2 L88.5 2 L94.5 10.5 L100.5 2 L107 2 L98.5 12 L107.5 21 L101 21 L94.5 13.5 L88 21 L81.5 21 L90.5 12 Z" fill="#111111" />
+
+    <!-- Horizontal underline bar -->
+    <line x1="0" y1="24.5" x2="108" y2="24.5" stroke="#111111" stroke-width="1.8" />
+    
+    <!-- Subtitle: WHEELS -->
+    <text x="54" y="33" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="7.5" font-weight="900" letter-spacing="4.5" fill="#444444">
+      WHEELS
+    </text>
+  </g>
+</svg>

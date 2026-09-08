@@ -1,16 +1,53 @@
-// FILE: components/brand-section.tsx
-// Drop this into your project at: components/brand-section.tsx
+"use client";
 
+import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { bikeTyreBrands, carTyreBrands } from "@/lib/data";
 import { FadeUp } from "@/components/animations";
+
+function BrandCard({
+  item,
+  className = "",
+}: {
+  item: { name: string; logo?: string };
+  className?: string;
+}) {
+  const [hasError, setHasError] = useState(false);
+
+  return (
+    <div
+      className={`group flex h-20 items-center justify-center rounded-2xl border border-black/[0.08] bg-white px-5 py-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-black/20 hover:shadow-md ${className}`}
+      title={`${item.name} Tyres`}
+    >
+      {item.logo && !hasError ? (
+        <img
+          src={item.logo}
+          alt={`${item.name} tyre company logo`}
+          className="max-h-9 sm:max-h-10 w-auto max-w-[135px] sm:max-w-[150px] object-contain transition-transform duration-200 group-hover:scale-105"
+          onError={() => setHasError(true)}
+        />
+      ) : (
+        <span className="text-sm font-bold tracking-tight text-black">
+          {item.name}
+        </span>
+      )}
+
+      {/* 
+        INDICATIVE PRICING SLOT (TODO):
+        When brand-level starting price data is provided by owner, slot it in here:
+        <span className="text-[11px] font-medium text-black/50">Starting ₹X,XXX</span>
+        Currently omitted to avoid fabricating unverified price figures.
+      */}
+    </div>
+  );
+}
 
 function BrandGrid({
   title,
   items,
 }: {
   title: string;
-  items: { name: string }[];
+  items: { name: string; logo?: string }[];
 }) {
   return (
     <div>
@@ -22,14 +59,13 @@ function BrandGrid({
         </Badge>
       </div>
 
-      <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
         {items.map((item) => (
-          <div
+          <BrandCard
             key={item.name}
-            className="rounded-2xl border border-black/[0.07] bg-white px-4 py-3.5 transition-shadow hover:shadow-sm"
-          >
-            <div className="text-sm font-semibold text-black">{item.name}</div>
-          </div>
+            item={item}
+            className="max-sm:last:col-span-2"
+          />
         ))}
       </div>
     </div>

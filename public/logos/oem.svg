@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 40" width="140" height="40">
+  <g transform="translate(6, 6)">
+    <!-- Shield / Factory badge -->
+    <path d="M12 2 L22 6 L22 15 C22 21 12 26 12 26 C12 26 2 21 2 15 L2 6 Z" fill="#111111" />
+    <path d="M12 5 L19 8 L19 14 C19 19 12 23 12 23 C12 23 5 19 5 14 L5 8 Z" fill="#E53935" />
+    <!-- Check / Star inside shield -->
+    <path d="M9 13 L11 16 L16 10" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <!-- OEM BRANDS text -->
+    <text x="28" y="15" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="900" letter-spacing="1" fill="#111111">
+      OEM
+    </text>
+    <text x="28" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="700" letter-spacing="1" fill="#666666">
+      BRANDS
+    </text>
+  </g>
+</svg>
