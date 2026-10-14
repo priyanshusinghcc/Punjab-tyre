@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
-// TypeScript may complain about side-effect CSS imports when no type
-// declarations are present. Suppress that error for this import.
 // @ts-ignore
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Analytics } from "@vercel/analytics/next";
+import { CartProvider } from "@/lib/cart-context";
+import { CartDrawer } from "@/components/shop/cart-drawer";
+import { VehicleLeadPopup } from "@/components/vehicle-lead-popup";
+import { ENABLE_STORE } from "@/lib/config";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   title: "PUNJAB TYRE ROHTAK | Tyres, Alloys & Fitment",
@@ -21,11 +24,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-[#F7F7F7] text-black">
-        <SiteHeader />
-        {children}
-        <SiteFooter />
+        <CartProvider>
+          <SiteHeader />
+          {children}
+          <SiteFooter />
+          {ENABLE_STORE && <CartDrawer />}
+          <VehicleLeadPopup />
+        </CartProvider>
         <Analytics />
       </body>
+      <GoogleAnalytics gaId="G-FFZTR3DC5K" />
     </html>
   );
 }

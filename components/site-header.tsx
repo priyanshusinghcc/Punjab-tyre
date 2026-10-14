@@ -4,6 +4,8 @@ import Link from "next/link";
 import { PhoneCall, Navigation } from "lucide-react";
 import { siteCopy } from "@/lib/data";
 import { buildWhatsAppLink } from "@/lib/utils";
+import { CartBadge } from "@/components/shop/cart-badge";
+import { ENABLE_STORE } from "@/lib/config";
 
 /**
  * SiteHeader — sticky, single-render.
@@ -45,6 +47,15 @@ export function SiteHeader() {
             Same day fitment in Rohtak
           </span>
 
+          {ENABLE_STORE && (
+            <Link
+              href="/shop"
+              className="rounded-full border border-black/10 px-3.5 py-1.5 text-[11px] font-semibold text-black/70 transition-colors hover:border-black/20 hover:text-black"
+            >
+              Shop
+            </Link>
+          )}
+
           <a
             href={siteCopy.mapsUrl}
             target="_blank"
@@ -54,6 +65,8 @@ export function SiteHeader() {
             <Navigation className="h-3.5 w-3.5" />
             Location
           </a>
+
+          {ENABLE_STORE && <CartBadge />}
 
           <a
             href={buildWhatsAppLink(
@@ -68,18 +81,21 @@ export function SiteHeader() {
           </a>
         </div>
 
-        {/* Mobile CTA */}
-        <a
-          href={buildWhatsAppLink(
-            "Hi, I want the best price for tyres at Punjab Tyre Rohtak.",
-          )}
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex items-center gap-2 rounded-full bg-[#E53935] px-4 py-2 text-xs font-semibold text-white md:hidden"
-        >
-          <PhoneCall className="h-3.5 w-3.5" />
-          WhatsApp
-        </a>
+        {/* Mobile — cart + WhatsApp */}
+        <div className="flex items-center gap-2 md:hidden">
+          {ENABLE_STORE && <CartBadge />}
+          <a
+            href={buildWhatsAppLink(
+              "Hi, I want the best price for tyres at Punjab Tyre Rohtak.",
+            )}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-[#E53935] px-4 py-2 text-xs font-semibold text-white"
+          >
+            <PhoneCall className="h-3.5 w-3.5" />
+            WhatsApp
+          </a>
+        </div>
       </div>
     </header>
   );

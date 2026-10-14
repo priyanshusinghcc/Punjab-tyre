@@ -1098,7 +1098,7 @@ export const siteCopy = {
   googleReviewsUrl:
     "https://www.google.com/maps/place/Yokohama+Club+Network+-+Punjab+Tyre/@28.8896109,76.6261038,17z/data=!4m18!1m9!3m8!1s0x390d8526fed9734f:0xb00c2486efdd348f!2sYokohama+Club+Network+-+Punjab+Tyre!8m2!3d28.8896109!4d76.6261038!9m1!1b1!16s%2Fg%2F11dzsx6mtc!3m7!1s0x390d8526fed9734f:0xb00c2486efdd348f!8m2!3d28.8896109!4d76.6261038!9m1!1b1!16s%2Fg%2F11dzsx6mtc",
   writeReviewUrl:
-    "https://search.google.com/local/writereview?placeid=ChIJTxPZ_iaFDzkRjzTdr4YkDL4",
+    "https://search.google.com/local/writereview?placeid=ChIJT3PZ_iaFDTkRjzTd74YkDLA",
   googleRating: 4.8,
   googleReviewCount: 754,
   googleReviewCountFormatted: "750+ Google Reviews",

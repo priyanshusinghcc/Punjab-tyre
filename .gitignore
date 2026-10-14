@@ -4,3 +4,5 @@ node_modules
 .vercel
 .DS_Store
 *.tsbuildinfo
+# Local order storage (dev only — production uses Upstash Redis)
+data/

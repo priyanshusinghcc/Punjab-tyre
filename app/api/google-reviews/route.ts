@@ -5,7 +5,7 @@ export const revalidate = 3600; // Cache for 1 hour
 
 export async function GET() {
   const apiKey = process.env.GOOGLE_PLACES_API_KEY;
-  const placeId = "ChIJTxPZ_iaFDzkRjzTdr4YkDL4";
+  const placeId = "ChIJT3PZ_iaFDTkRjzTd74YkDLA";
 
   // If a live Google Places API key is configured in the environment, attempt to fetch live updates
   if (apiKey) {

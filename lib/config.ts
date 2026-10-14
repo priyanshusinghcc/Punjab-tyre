@@ -18,3 +18,6 @@ export const INSTAGRAM_HANDLE = "punjabtyrerohtak";
 export const INSTAGRAM_URL = `https://www.instagram.com/${INSTAGRAM_HANDLE}/`;
 
 export const GOOGLE_MAPS_URL = "https://maps.google.com/?q=Punjab+Tyre+Rohtak";
+
+// Toggle to show/hide online store catalog, cart drawer & shop navigation
+export const ENABLE_STORE = false;
