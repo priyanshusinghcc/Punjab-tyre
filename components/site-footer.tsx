@@ -160,7 +160,10 @@ export function SiteFooter() {
       </nav>
 
       <div className="border-t border-white/[0.06] py-5 text-center text-xs text-white/55">
-        © {new Date().getFullYear()} {BUSINESS.name}, Rohtak. All rights reserved.
+        © {new Date().getFullYear()} {BUSINESS.name}, Rohtak. All rights reserved. ·{" "}
+        <Link href="/privacy" className="underline hover:text-white">
+          Privacy policy
+        </Link>
       </div>
     </footer>
   );

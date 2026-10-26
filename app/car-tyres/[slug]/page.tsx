@@ -56,6 +56,7 @@ export default async function CarTyrePage({ params }: { params: Promise<{ slug: 
       faqs={carModelFaqs(page)}
       related={related}
       relatedTitle="Tyre sizes for other cars"
+      callbackCar={page.displayName}
     >
       <section className="bg-[#f7f7f7]" id="sizes">
         <div className="container-shell py-14">

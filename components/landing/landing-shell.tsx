@@ -6,6 +6,7 @@ import { siteCopy } from "@/lib/data";
 import { JsonLd } from "@/components/seo/json-ld";
 import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import type { FaqItem } from "@/lib/landing-pages";
+import { CallbackForm } from "@/components/callback-form";
 
 type Crumb = { name: string; path: string };
 type RelatedLink = { label: string; href: string };
@@ -20,6 +21,7 @@ export function LandingShell({
   related = [],
   relatedTitle = "Related",
   extraSchema = [],
+  callbackCar = "",
   children,
 }: {
   crumbs: Crumb[];
@@ -31,6 +33,7 @@ export function LandingShell({
   related?: RelatedLink[];
   relatedTitle?: string;
   extraSchema?: unknown[];
+  callbackCar?: string;
   children?: React.ReactNode;
 }) {
   const allCrumbs = [{ name: "Home", path: "/" }, ...crumbs];
@@ -133,6 +136,9 @@ export function LandingShell({
               Authorised Yokohama dealer and tyre store in Rohtak since {BUSINESS.foundingYear}. Send your car
               model on WhatsApp first and we&apos;ll confirm stock and price before you come.
             </p>
+            <div className="mt-6 max-w-md">
+              <CallbackForm defaultCar={callbackCar} />
+            </div>
           </div>
           <address className="space-y-3 not-italic">
             <div className="flex items-start gap-3 text-sm text-black/75">
