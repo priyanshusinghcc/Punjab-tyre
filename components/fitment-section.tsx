@@ -13,7 +13,7 @@ import { motion } from "framer-motion";
  */
 export function FitmentSection() {
   return (
-    <section className="bg-[#0a0a0a]" id="visit-store">
+    <section className="overflow-hidden bg-[#0a0a0a]" id="visit-store">
       <div className="container-shell grid items-stretch gap-0 lg:grid-cols-2">
         {/* Image */}
         <motion.div
