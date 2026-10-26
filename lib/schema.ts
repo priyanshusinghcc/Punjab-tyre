@@ -12,7 +12,7 @@ export function localBusinessSchema() {
     name: BUSINESS.name,
     alternateName: BUSINESS.alternateNames,
     description:
-      "Authorised Yokohama tyre dealer (Yokohama Club Network) in Rohtak, Haryana, serving drivers since 1949. Car and bike tyres from Yokohama, CEAT, Apollo, Goodyear and Michelin, alloy wheels, car accessories, and same-day fitment with wheel alignment, balancing and nitrogen inflation.",
+      "Authorised Yokohama tyre dealer (Yokohama Club Network) and authorised Advantec alloy wheel store in Rohtak, Haryana, serving drivers since 1949. Car and bike tyres from Yokohama, CEAT, Apollo, Goodyear and Michelin; alloy wheels from Advantec, Neo, Onyx, Incubus and Uno Minda; car accessories; and same-day fitment with wheel alignment, balancing and nitrogen inflation.",
     url: SITE_URL,
     logo: `${SITE_URL}/images/ptlogo.png`,
     image: [`${SITE_URL}/images/pt-front.jpg`],
@@ -44,9 +44,9 @@ export function localBusinessSchema() {
       { "@type": "City", name: "Rohtak" },
       { "@type": "State", name: "Haryana" },
     ],
-    brand: BUSINESS.carTyreBrands
-      .concat(BUSINESS.bikeTyreBrands.filter((b) => !BUSINESS.carTyreBrands.includes(b)))
-      .map((name) => ({ "@type": "Brand", name })),
+    brand: Array.from(
+      new Set([...BUSINESS.carTyreBrands, ...BUSINESS.bikeTyreBrands, ...BUSINESS.alloyBrands]),
+    ).map((name) => ({ "@type": "Brand", name })),
     knowsAbout: [
       "Car tyres",
       "Bike tyres",

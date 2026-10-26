@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LandingShell } from "@/components/landing/landing-shell";
-import { servicePages } from "@/lib/landing-pages";
+import { alloyOverview, servicePages } from "@/lib/landing-pages";
 
 export const metadata: Metadata = {
   title: "Tyre & Wheel Services in Rohtak",
   description:
-    "Wheel alignment, balancing, same-day tyre fitting, nitrogen filling, puncture repair and alloy wheels at Punjab Tyre, Rohtak. Included free with new tyres.",
+    "Wheel alignment, balancing, same-day tyre fitting, nitrogen filling, puncture repair and alloy wheels at Punjab Tyre, Rohtak. Services included free with new tyres.",
   alternates: { canonical: "/services" },
 };
 
@@ -31,6 +31,13 @@ export default function ServicesIndex() {
               <p className="mt-2 text-sm leading-6 text-black/60">{s.metaDescription}</p>
             </Link>
           ))}
+          <Link
+            href="/alloy-wheels"
+            className="group rounded-3xl border border-black/[0.07] bg-white p-6 transition-shadow hover:shadow-md"
+          >
+            <h2 className="text-lg font-bold text-black group-hover:text-[#E53935]">{alloyOverview.h1}</h2>
+            <p className="mt-2 text-sm leading-6 text-black/60">{alloyOverview.metaDescription}</p>
+          </Link>
         </div>
       </section>
     </LandingShell>

@@ -30,6 +30,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const path = `/services/${page.slug}`;
   const related = [
     ...servicePages.filter((s) => s.slug !== page.slug).map((s) => ({ label: `${s.name} in Rohtak`, href: `/services/${s.slug}` })),
+    { label: "Alloy wheels in Rohtak", href: "/alloy-wheels" },
     ...carModelPages.slice(0, 6).map((c) => ({ label: `${c.displayName} tyre size`, href: `/car-tyres/${c.slug}` })),
   ];
 

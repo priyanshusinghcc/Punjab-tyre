@@ -10,7 +10,9 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       // Old "catalogue coming soon" page → tyre size finder
-      { source: "/tyres", destination: "/car-tyres", permanent: true }
+      { source: "/tyres", destination: "/car-tyres", permanent: true },
+      // Alloy wheels moved from /services to their own section
+      { source: "/services/alloy-wheels", destination: "/alloy-wheels", permanent: true }
     ];
   }
 };

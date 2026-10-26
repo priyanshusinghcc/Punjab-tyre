@@ -968,14 +968,16 @@ export type AlloyItem = {
   name: string;
   note: string;
   logo?: string;
+  slug?: string;
+  authorised?: boolean;
 };
 
 export const alloyWheels: AlloyItem[] = [
-  { name: "Neo", note: "Sporty designs for modern cars", logo: "/logos/neo.svg" },
-  { name: "Advantec", note: "Flow-forged precision alloys", logo: "/logos/advantec.svg" },
-  { name: "Onyx Wheels", note: "High performance custom alloys", logo: "/logos/onyx.svg" },
-  { name: "Incubus Alloys", note: "Performance styling & rugged aesthetics", logo: "/logos/incubus.png" },
-  { name: "Uno Minda", note: "Reliable aftermarket choice", logo: "/logos/unominda.png" },
+  { name: "Neo", note: "Sporty designs for modern cars", logo: "/logos/neo.svg", slug: "neo" },
+  { name: "Advantec", note: "Flow-forged precision alloys", logo: "/logos/advantec.svg", slug: "advantec", authorised: true },
+  { name: "Onyx Wheels", note: "High performance custom alloys", logo: "/logos/onyx.svg", slug: "onyx" },
+  { name: "Incubus Alloys", note: "Performance styling & rugged aesthetics", logo: "/logos/incubus.png", slug: "incubus" },
+  { name: "Uno Minda", note: "Reliable aftermarket choice", logo: "/logos/unominda.png", slug: "uno-minda" },
   { name: "OEM Brands", note: "Factory-style replacement alloys", logo: "/logos/oem.svg" },
 ];
 
@@ -1079,9 +1081,9 @@ export const faqs = [
       "Monday to Saturday 9:30 AM – 8:00 PM, and Sunday 10:00 AM – 5:00 PM.",
   },
   {
-    question: "Is Punjab Tyre an authorised Yokohama dealer?",
+    question: "Is Punjab Tyre an authorised Yokohama and Advantec dealer?",
     answer:
-      "Yes. Punjab Tyre is an authorised Yokohama dealer and a Yokohama Club Network store in Rohtak. We also stock genuine CEAT, Apollo, Goodyear and Michelin car tyres, and CEAT, Apollo, Michelin, TVS and BKT bike tyres.",
+      "Yes. Punjab Tyre is an authorised Yokohama dealer (Yokohama Club Network store) and an authorised Advantec alloy wheel store in Rohtak. We also stock genuine CEAT, Apollo, Goodyear and Michelin car tyres, CEAT, Apollo, Michelin, TVS and BKT bike tyres, and Neo, Onyx, Incubus and Uno Minda alloy wheels.",
   },
   {
     question: "Can I get new tyres fitted the same day?",

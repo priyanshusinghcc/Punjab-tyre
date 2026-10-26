@@ -133,7 +133,7 @@ export function LandingShell({
           <div>
             <h2 className="text-2xl font-black text-black md:text-3xl">Visit {BUSINESS.name}</h2>
             <p className="mt-3 max-w-md text-sm leading-7 text-black/60">
-              Authorised Yokohama dealer and tyre store in Rohtak since {BUSINESS.foundingYear}. Send your car
+              Authorised Yokohama dealer and Advantec alloy wheel store in Rohtak since {BUSINESS.foundingYear}. Send your car
               model on WhatsApp first and we&apos;ll confirm stock and price before you come.
             </p>
             <div className="mt-6 max-w-md">

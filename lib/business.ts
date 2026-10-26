@@ -47,7 +47,7 @@ export const BUSINESS = {
   instagramUrl: "https://www.instagram.com/punjabtyrerohtak/",
   googleRating: 4.8,
   googleReviewCount: 754,
-  authorisedBrands: ["Yokohama"],
+  authorisedBrands: ["Yokohama", "Advantec"],
   carTyreBrands: ["Yokohama", "CEAT", "Apollo", "Goodyear", "Michelin"],
   bikeTyreBrands: ["CEAT", "Apollo", "Michelin", "TVS", "BKT"],
   alloyBrands: ["Neo", "Advantec", "Onyx Wheels", "Incubus Alloys", "Uno Minda"],

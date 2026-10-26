@@ -1,6 +1,6 @@
 // /llms.txt — a plain-text summary for AI assistants (llmstxt.org convention).
 import { BUSINESS, FULL_ADDRESS, SITE_URL } from "@/lib/business";
-import { brandPages, carModelPages, servicePages } from "@/lib/landing-pages";
+import { alloyBrandPages, brandPages, carModelPages, servicePages } from "@/lib/landing-pages";
 
 export const dynamic = "force-static";
 
@@ -8,7 +8,7 @@ export function GET() {
   const lines = [
     `# ${BUSINESS.name}`,
     "",
-    `> Tyre and alloy wheel store in Rohtak, Haryana, India, serving drivers since ${BUSINESS.foundingYear}. Authorised Yokohama dealer (Yokohama Club Network). Sells genuine car, SUV and bike tyres from Yokohama, CEAT, Apollo, Goodyear, Michelin, TVS and BKT, plus alloy wheels and car accessories, with same-day fitment. Rated ${BUSINESS.googleRating} on Google from ${BUSINESS.googleReviewCount}+ reviews.`,
+    `> Tyre and alloy wheel store in Rohtak, Haryana, India, serving drivers since ${BUSINESS.foundingYear}. Authorised Yokohama dealer (Yokohama Club Network) and authorised Advantec alloy wheel store. Sells genuine car, SUV and bike tyres from Yokohama, CEAT, Apollo, Goodyear, Michelin, TVS and BKT; alloy wheels from Advantec, Neo, Onyx, Incubus and Uno Minda; and car accessories, with same-day fitment. Rated ${BUSINESS.googleRating} on Google from ${BUSINESS.googleReviewCount}+ reviews.`,
     "",
     "## Contact",
     `- Address: ${FULL_ADDRESS}, India`,
@@ -27,6 +27,12 @@ export function GET() {
     "",
     "## Tyre brands",
     ...brandPages.map((b) => `- [${b.name} tyres in Rohtak](${SITE_URL}/brands/${b.slug})${b.authorised ? " — authorised dealer" : ""}`),
+    "",
+    "## Alloy wheels",
+    `- [Alloy wheels in Rohtak](${SITE_URL}/alloy-wheels)`,
+    ...alloyBrandPages.map(
+      (a) => `- [${a.authorised ? `Authorised ${a.name} store in Rohtak` : `${a.name} alloy wheels in Rohtak`}](${SITE_URL}/alloy-wheels/${a.slug})`,
+    ),
     "",
     "## Tyre size by car model",
     ...carModelPages.map(

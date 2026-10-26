@@ -215,43 +215,50 @@ export const servicePages: ServicePage[] = [
     ],
     whatsappMessage: "Hi Punjab Tyre, I have a tyre puncture. Can I bring my vehicle in now?",
   },
-  {
-    slug: "alloy-wheels",
-    name: "Alloy Wheels",
-    h1: "Alloy Wheels in Rohtak",
-    metaTitle: "Alloy Wheels in Rohtak — Neo, Advantec, Onyx & More",
-    metaDescription:
-      "Buy alloy wheels in Rohtak: Neo, Advantec, Onyx, Incubus, Uno Minda and OEM-style alloys. Correct PCD and offset, fitted with tyres, same day.",
-    intro:
-      "Upgrade your car's look and handling with genuine alloy wheels from Neo, Advantec, Onyx Wheels, Incubus Alloys, Uno Minda and OEM-style replacements. We match the correct PCD, offset and size for your car and fit them with your tyres.",
-    signsTitle: "What we help you choose",
-    signs: [
-      "The right size — stock size or a sensible upsize",
-      "Correct PCD (bolt pattern), centre bore and offset for your car",
-      "Finish and design: machined, black, gunmetal, silver and more",
-      "Matching tyre size so the overall wheel diameter stays close to stock",
-    ],
-    howTitle: "Why buy alloys at Punjab Tyre",
-    how: [
-      "Genuine certified alloy brands in custom finishes, PCDs and sizes",
-      "Fitted together with your tyres, then balanced and aligned",
-      "Honest advice on upsizing so ride comfort and speedometer accuracy aren't lost",
-    ],
-    faqs: [
-      {
-        question: "Can I put bigger alloy wheels on my car?",
-        answer:
-          "Often yes. A common rule is to keep the overall wheel-and-tyre diameter within about 3% of the original so the speedometer, ABS and ride stay correct. Tell us your car and variant and we'll suggest sizes that fit.",
-      },
-      {
-        question: "Which alloy wheel brands do you sell in Rohtak?",
-        answer:
-          "Neo, Advantec, Onyx Wheels, Incubus Alloys, Uno Minda and OEM-style replacement alloys, in a range of finishes, PCDs and sizes.",
-      },
-    ],
-    whatsappMessage: "Hi Punjab Tyre, I want alloy wheels for my car. Please share designs and prices.",
-  },
 ];
+
+/** General alloy wheels content, shown on /alloy-wheels. */
+export const alloyOverview: ServicePage = {
+  slug: "alloy-wheels",
+  name: "Alloy Wheels",
+  h1: "Alloy Wheels in Rohtak",
+  metaTitle: "Alloy Wheels in Rohtak — Authorised Advantec Store",
+  metaDescription:
+    "Buy alloy wheels in Rohtak at Punjab Tyre — authorised Advantec store, plus Neo, Onyx, Incubus, Uno Minda and OEM-style alloys. Correct fitment, fitted with tyres the same day.",
+  intro:
+    "Upgrade your car's look and handling with genuine alloy wheels. Punjab Tyre is an authorised Advantec store in Rohtak and also stocks Neo, Onyx Wheels, Incubus Alloys, Uno Minda and OEM-style replacements. We match the correct PCD, offset and size for your car and fit them with your tyres the same day.",
+  signsTitle: "What we help you choose",
+  signs: [
+    "The right size — stock size or a sensible upsize",
+    "Correct PCD (bolt pattern), centre bore and offset for your car",
+    "Finish and design: machined, black, gunmetal, silver and more",
+    "Matching tyre size so the overall wheel diameter stays close to stock",
+  ],
+  howTitle: "Why buy alloys at Punjab Tyre",
+  how: [
+    "Authorised Advantec store, plus genuine Neo, Onyx, Incubus and Uno Minda alloys",
+    "Fitted together with your tyres, then balanced and aligned",
+    "Honest advice on upsizing so ride comfort and speedometer accuracy aren't lost",
+  ],
+  faqs: [
+    {
+      question: "Which alloy wheel brands do you sell in Rohtak?",
+      answer:
+        "Punjab Tyre is an authorised Advantec alloy wheel store and also sells genuine Neo, Onyx Wheels, Incubus Alloys, Uno Minda and OEM-style replacement alloys, in a range of finishes, PCDs and sizes.",
+    },
+    {
+      question: "Can I put bigger alloy wheels on my car?",
+      answer:
+        "Often yes. A common rule is to keep the overall wheel-and-tyre diameter within about 3% of the original so the speedometer, ABS and ride stay correct. Tell us your car and variant and we'll suggest sizes that fit.",
+    },
+    {
+      question: "Do you fit the alloys the same day?",
+      answer:
+        "Yes. We fit the alloys with your tyres, then balance and align the wheels at our Rohtak store. Message us first so we can confirm the design and size are in stock.",
+    },
+  ],
+  whatsappMessage: "Hi Punjab Tyre, I want alloy wheels for my car. Please share designs and prices.",
+};
 
 // ─────────────────────────────────────────────────────────────────────────────
 // TYRE BRANDS
@@ -556,3 +563,133 @@ export function carModelFaqs(page: CarModelPage): FaqItem[] {
 export function carWhatsAppMessage(page: CarModelPage): string {
   return `Hi Punjab Tyre, I need tyres for my ${page.displayName}. Please share prices for size ${page.sizes[0].size}.`;
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// ALLOY WHEEL BRANDS
+// ─────────────────────────────────────────────────────────────────────────────
+
+export type AlloyBrandPage = {
+  slug: string;
+  name: string; // "Advantec"
+  fullName: string; // "Advantec alloy wheels"
+  logo: string;
+  authorised: boolean;
+  metaTitle: string;
+  metaDescription: string;
+  intro: string;
+  points: string[];
+  faqs: FaqItem[];
+};
+
+function alloyFaqs(name: string, authorised: boolean): FaqItem[] {
+  const faqs: FaqItem[] = [];
+  if (authorised) {
+    faqs.push({
+      question: `Is Punjab Tyre an authorised ${name} alloy wheel dealer?`,
+      answer: `Yes. Punjab Tyre in Rohtak is an authorised ${name} store, selling genuine ${name} alloy wheels with manufacturer warranty and same-day fitment.`,
+    });
+  }
+  faqs.push(
+    {
+      question: `Where can I buy ${name} alloy wheels in Rohtak?`,
+      answer: `At Punjab Tyre (Yokohama Club Network), 351/12 Gali No. 3, opposite Pacific Mall, next to Shangrila Hotel, Rohtak. Open Mon–Sat 9:30 AM–8 PM and Sunday 10 AM–5 PM. Call or WhatsApp +91 98960 53958.`,
+    },
+    {
+      question: `Will ${name} alloys fit my car?`,
+      answer: `We check the PCD (bolt pattern), centre bore, offset and size for your exact car and variant before fitting. Send your car model on WhatsApp and we'll share ${name} designs that fit.`,
+    },
+    {
+      question: `What is the price of ${name} alloy wheels in Rohtak?`,
+      answer: `It depends on the wheel size, design and finish. Send your car model and preferred size on WhatsApp to +91 98960 53958 and we'll reply with current prices for the ${name} designs in stock.`,
+    },
+    {
+      question: `Can I upsize to bigger ${name} alloys?`,
+      answer: `Usually, yes — as long as the overall wheel-and-tyre diameter stays within about 3% of the original, so the speedometer, ABS and ride comfort aren't affected. We'll suggest the right alloy and tyre size combination for your car.`,
+    },
+  );
+  return faqs;
+}
+
+const COMMON_ALLOY_POINTS = [
+  "PCD, centre bore and offset checked for your exact car before fitting",
+  "Fitted together with your tyres, then balanced and aligned the same day",
+  "Choose your finish — machined, black, gunmetal, silver and more (varies by design)",
+  "Honest advice on upsizing so ride comfort and speedometer accuracy aren't lost",
+];
+
+export const alloyBrandPages: AlloyBrandPage[] = [
+  {
+    slug: "advantec",
+    name: "Advantec",
+    fullName: "Advantec alloy wheels",
+    logo: "/logos/advantec.svg",
+    authorised: true,
+    metaTitle: "Advantec Alloy Wheels Rohtak — Authorised Store",
+    metaDescription:
+      "Authorised Advantec alloy wheel store in Rohtak. Genuine flow-forged Advantec alloys for hatchbacks, sedans and SUVs, fitted with your tyres the same day at Punjab Tyre.",
+    intro:
+      "Punjab Tyre is an authorised Advantec alloy wheel store in Rohtak. Choose from genuine Advantec flow-forged precision alloys for your hatchback, sedan or SUV — checked for correct fitment and fitted with your tyres the same day.",
+    points: [
+      "Authorised Advantec store — genuine wheels with manufacturer warranty",
+      "Flow-forged precision alloys in a range of designs and sizes",
+      ...COMMON_ALLOY_POINTS,
+    ],
+    faqs: alloyFaqs("Advantec", true),
+  },
+  {
+    slug: "neo",
+    name: "Neo",
+    fullName: "Neo alloy wheels",
+    logo: "/logos/neo.svg",
+    authorised: false,
+    metaTitle: "Neo Alloy Wheels in Rohtak",
+    metaDescription:
+      "Buy genuine Neo alloy wheels in Rohtak at Punjab Tyre. Sporty designs for modern cars, correct PCD and offset, fitted with tyres the same day.",
+    intro:
+      "Give your car a sportier look with genuine Neo alloy wheels at Punjab Tyre, Rohtak. Neo offers sporty designs for modern hatchbacks, sedans and SUVs, and we fit them with your tyres the same day.",
+    points: ["Sporty designs for modern cars", ...COMMON_ALLOY_POINTS],
+    faqs: alloyFaqs("Neo", false),
+  },
+  {
+    slug: "onyx",
+    name: "Onyx",
+    fullName: "Onyx alloy wheels",
+    logo: "/logos/onyx.svg",
+    authorised: false,
+    metaTitle: "Onyx Alloy Wheels in Rohtak",
+    metaDescription:
+      "Buy genuine Onyx Wheels alloys in Rohtak at Punjab Tyre. High-performance custom alloy designs, checked for fitment and fitted with tyres the same day.",
+    intro:
+      "Punjab Tyre stocks genuine Onyx Wheels in Rohtak — high-performance custom alloy designs for drivers who want their car to stand out. We check fitment for your car and fit them with your tyres the same day.",
+    points: ["High-performance custom alloy designs", ...COMMON_ALLOY_POINTS],
+    faqs: alloyFaqs("Onyx", false),
+  },
+  {
+    slug: "incubus",
+    name: "Incubus",
+    fullName: "Incubus alloy wheels",
+    logo: "/logos/incubus.png",
+    authorised: false,
+    metaTitle: "Incubus Alloy Wheels in Rohtak",
+    metaDescription:
+      "Buy genuine Incubus alloy wheels in Rohtak at Punjab Tyre. Performance styling and rugged looks for cars and SUVs, fitted with tyres the same day.",
+    intro:
+      "Get genuine Incubus alloy wheels at Punjab Tyre, Rohtak — performance styling and rugged looks that suit SUVs and cars alike. We match the right size and fitment for your vehicle and fit them the same day.",
+    points: ["Performance styling and rugged looks, popular for SUVs", ...COMMON_ALLOY_POINTS],
+    faqs: alloyFaqs("Incubus", false),
+  },
+  {
+    slug: "uno-minda",
+    name: "Uno Minda",
+    fullName: "Uno Minda alloy wheels",
+    logo: "/logos/unominda.svg",
+    authorised: false,
+    metaTitle: "Uno Minda Alloy Wheels in Rohtak",
+    metaDescription:
+      "Buy genuine Uno Minda alloy wheels in Rohtak at Punjab Tyre. A reliable aftermarket choice, checked for fitment and fitted with tyres the same day.",
+    intro:
+      "Punjab Tyre offers genuine Uno Minda alloy wheels in Rohtak — a reliable aftermarket choice from one of India's best-known auto component makers. We check the fitment for your car and fit them the same day.",
+    points: ["Reliable aftermarket alloys from a trusted Indian auto component maker", ...COMMON_ALLOY_POINTS],
+    faqs: alloyFaqs("Uno Minda", false),
+  },
+];

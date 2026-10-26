@@ -4,7 +4,7 @@ import { Clock, MapPin, PhoneCall } from "lucide-react";
 import { buildWhatsAppLink } from "@/lib/utils";
 import { siteCopy } from "@/lib/data";
 import { BUSINESS, FULL_ADDRESS } from "@/lib/business";
-import { brandPages, carModelPages, servicePages } from "@/lib/landing-pages";
+import { alloyBrandPages, brandPages, carModelPages, servicePages } from "@/lib/landing-pages";
 
 /**
  * SiteFooter — rendered once, from app/layout.tsx.
@@ -38,8 +38,8 @@ export function SiteFooter() {
             </div>
           </div>
           <p className="mt-4 max-w-xs text-sm leading-7 text-white/75">
-            {BUSINESS.name} — authorised Yokohama dealer in Rohtak. Genuine tyres, alloy wheels and
-            same-day fitment since {BUSINESS.foundingYear}.
+            {BUSINESS.name} — authorised Yokohama dealer and Advantec alloy wheel store in Rohtak.
+            Genuine tyres, alloy wheels and same-day fitment since {BUSINESS.foundingYear}.
           </p>
         </div>
 
@@ -108,7 +108,7 @@ export function SiteFooter() {
 
       {/* Link directory */}
       <nav aria-label="Footer" className="border-t border-white/[0.06]">
-        <div className="container-shell grid gap-8 py-10 sm:grid-cols-3">
+        <div className="container-shell grid gap-8 py-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <Link href="/services" className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60 hover:text-white">
               Services
@@ -132,6 +132,20 @@ export function SiteFooter() {
                 <li key={b.slug}>
                   <Link href={`/brands/${b.slug}`} className={linkClass}>
                     {b.name} tyres Rohtak{b.authorised ? " (authorised dealer)" : ""}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <Link href="/alloy-wheels" className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60 hover:text-white">
+              Alloy wheels
+            </Link>
+            <ul className="mt-4 space-y-2">
+              {alloyBrandPages.map((a) => (
+                <li key={a.slug}>
+                  <Link href={`/alloy-wheels/${a.slug}`} className={linkClass}>
+                    {a.authorised ? `Authorised ${a.name} store Rohtak` : `${a.name} alloys Rohtak`}
                   </Link>
                 </li>
               ))}

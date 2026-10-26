@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { brandPages, carModelPages, servicePages } from "@/lib/landing-pages";
+import { alloyBrandPages, brandPages, carModelPages, servicePages } from "@/lib/landing-pages";
 
 /** Internal links from the home page to the SEO landing pages. */
 export function PopularLinks() {
@@ -18,6 +18,14 @@ export function PopularLinks() {
       })),
     },
     {
+      title: "Alloy wheels in Rohtak",
+      href: "/alloy-wheels",
+      links: alloyBrandPages.map((a) => ({
+        label: a.authorised ? `Authorised ${a.name} store` : `${a.name} alloy wheels`,
+        href: `/alloy-wheels/${a.slug}`,
+      })),
+    },
+    {
       title: "Services",
       href: "/services",
       links: servicePages.map((s) => ({ label: s.h1, href: `/services/${s.slug}` })),
@@ -27,7 +35,7 @@ export function PopularLinks() {
   return (
     <section className="container-shell pb-16" id="popular-searches">
       <h2 className="text-xl font-bold text-black md:text-2xl">Popular in Rohtak</h2>
-      <div className="mt-6 grid gap-8 md:grid-cols-3">
+      <div className="mt-6 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
         {groups.map((g) => (
           <div key={g.title}>
             <Link href={g.href} className="text-xs font-semibold uppercase tracking-[0.18em] text-[#E53935] hover:underline">
