@@ -1069,6 +1069,26 @@ export const testimonials = [
 
 export const faqs = [
   {
+    question: "Where is Punjab Tyre located in Rohtak?",
+    answer:
+      "Punjab Tyre (Yokohama Club Network) is at 351/12, Gali No. 3, opposite Pacific Mall, next to Shangrila Hotel, Rohtak, Haryana 124001. Call or WhatsApp +91 98960 53958.",
+  },
+  {
+    question: "What are Punjab Tyre's opening hours?",
+    answer:
+      "Monday to Saturday 9:30 AM – 8:00 PM, and Sunday 10:00 AM – 5:00 PM.",
+  },
+  {
+    question: "Is Punjab Tyre an authorised Yokohama dealer?",
+    answer:
+      "Yes. Punjab Tyre is an authorised Yokohama dealer and a Yokohama Club Network store in Rohtak. We also stock genuine CEAT, Apollo, Goodyear and Michelin car tyres, and CEAT, Apollo, Michelin, TVS and BKT bike tyres.",
+  },
+  {
+    question: "Can I get new tyres fitted the same day?",
+    answer:
+      "Yes. Send your car model or tyre size on WhatsApp so we can confirm stock, then visit the store for same-day fitment. Wheel alignment, balancing and nitrogen inflation are included with a tyre purchase.",
+  },
+  {
     question: "How long do car tyres usually last?",
     answer:
       "Tyre life depends on driving style, road conditions, alignment, and maintenance. Many owners replace them around 35,000 to 50,000 km, but visible wear, cracks, or vibration should be checked earlier.",

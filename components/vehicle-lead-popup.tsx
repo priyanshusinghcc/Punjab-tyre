@@ -6,6 +6,7 @@ import { X, Car, ChevronDown, CheckCircle, Sparkles, ArrowRight, PhoneCall } fro
 import { carVehicleCatalog } from "@/lib/data";
 import { getVehicleOemFitment } from "@/lib/oem-fitment";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { tagWhatsAppUrl, trackEvent } from "@/lib/analytics";
 import Link from "next/link";
 import { ENABLE_STORE } from "@/lib/config";
 
@@ -107,8 +108,15 @@ export function VehicleLeadPopup() {
     const sizePart = oemFitment ? ` OEM Tyre Size: ${oemFitment.size}.` : "";
     const waMessage = `Hi Punjab Tyre, I am looking for tyre size & pricing for my ${brand} ${model}.${sizePart} My WhatsApp number is +91 ${phone}. Please share available brands, prices, and fitment details.`;
 
+    // Track the lead in GA4 (no phone number — never send personal data to GA)
+    trackEvent("tyre_size_lead", {
+      car_brand: brand,
+      car_model: model,
+      tyre_size: oemFitment?.size,
+    });
+
     // Open WhatsApp in a new tab
-    window.open(buildWhatsAppUrl(waMessage), "_blank", "noopener,noreferrer");
+    window.open(tagWhatsAppUrl(buildWhatsAppUrl(waMessage)), "_blank", "noopener,noreferrer");
   };
 
   if (!isOpen) {

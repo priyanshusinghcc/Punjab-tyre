@@ -16,12 +16,13 @@ export function SeoSection() {
         </h2>
         <p className="mt-4 max-w-4xl text-sm leading-8 text-white/80">
           Serving Rohtak and surrounding Haryana districts since 1949, Punjab Tyre
-          makes buying tyres straightforward and transparent. Instead of guessing sizes
-          or dealing with uncertain showroom pricing, you get instant brand comparisons,
-          clear quotations, and authentic manufacturer warranty on every set. Whether
-          you need heavy-duty highway tyres, performance alloys, or reliable city treads,
+          (Yokohama Club Network) is an authorised Yokohama dealer that makes buying
+          tyres straightforward and transparent. Instead of guessing sizes or dealing
+          with uncertain showroom pricing, you get instant brand comparisons, clear
+          quotations, and authentic manufacturer warranty on every set. Whether you
+          need heavy-duty highway tyres, performance alloys, or reliable city treads,
           our team provides expert guidance and same-day in-store fitment, alignment,
-          and balancing right here in Rohtak.
+          and balancing at our store opposite Pacific Mall, Rohtak.
         </p>
       </div>
     </section>

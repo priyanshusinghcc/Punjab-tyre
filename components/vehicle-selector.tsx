@@ -8,6 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { bikeVehicleCatalog, carVehicleCatalog } from "@/lib/data";
 import { getVehicleOemFitment } from "@/lib/oem-fitment";
 import { buildWhatsAppLink } from "@/lib/utils";
+import { tagWhatsAppUrl, trackEvent } from "@/lib/analytics";
 import { ArrowRight, PhoneCall, Search, ShieldCheck } from "lucide-react";
 
 type TyreType = "car" | "bike";
@@ -68,7 +69,17 @@ export function VehicleSelector() {
         ? `Hi, I want the best price for ${tyreType} tyres. Vehicle: ${brand} ${model} ${variant}. Company OEM Fitment: ${oemFitment.size}.${budgetPart} Please share options and fitment availability.`
         : `Hi, I want the best price for ${tyreType} tyres. Size: ${size}.${budgetPart} Please share options and fitment availability.`;
 
-    window.open(buildWhatsAppLink(message), "_blank", "noopener,noreferrer");
+    trackEvent("quote_request", {
+      vehicle_type: tyreType,
+      search_mode: mode,
+      car_brand: mode === "vehicle" ? brand : undefined,
+      car_model: mode === "vehicle" ? model : undefined,
+      car_variant: mode === "vehicle" ? variant : undefined,
+      tyre_size: mode === "vehicle" ? oemFitment.size : size,
+      budget: budget.trim() || undefined,
+    });
+
+    window.open(tagWhatsAppUrl(buildWhatsAppLink(message)), "_blank", "noopener,noreferrer");
   };
 
   const sizeValue = `${width}/${profile} R${rim}`;

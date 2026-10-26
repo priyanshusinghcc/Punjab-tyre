@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { VehicleSelector } from "@/components/vehicle-selector";
 import { siteCopy } from "@/lib/data";
 import { ArrowRight, MapPin } from "lucide-react";
+import { buildWhatsAppLink } from "@/lib/utils";
 
 // ── Framer Motion variants ────────────────────────────────────────────────
 // ease must be typed `as const` so TS infers a readonly tuple, not number[].
@@ -39,7 +40,7 @@ const item: Variants = {
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-[#080808]">
+    <section className="relative overflow-hidden bg-[#080808]" id="hero">
       {/*
         LAYER 1 — SVG fractal noise grain
         opacity 0.035 — invisible consciously, but removes the "flat screen"
@@ -131,7 +132,7 @@ export function HeroSection() {
             className="flex flex-wrap items-center gap-3"
           >
             <a
-              href="https://wa.me/919896053958"
+              href={buildWhatsAppLink("Hi Punjab Tyre, I want the best price on tyres for my vehicle.")}
               target="_blank"
               rel="noreferrer"
               className="group inline-flex items-center gap-2.5 rounded-full bg-[#E53935] px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#E53935]/25 transition-all duration-200 hover:bg-[#cf3330] hover:shadow-[#E53935]/40 hover:shadow-xl active:scale-[0.97]"

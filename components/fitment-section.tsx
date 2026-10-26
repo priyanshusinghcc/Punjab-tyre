@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { MapPin, PhoneCall, ShieldCheck } from "lucide-react";
+import { Clock, MapPin, PhoneCall, ShieldCheck } from "lucide-react";
+import { BUSINESS, FULL_ADDRESS } from "@/lib/business";
 import { siteCopy } from "@/lib/data";
 import { buildWhatsAppLink } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -12,7 +13,7 @@ import { motion } from "framer-motion";
  */
 export function FitmentSection() {
   return (
-    <section className="bg-[#0a0a0a]">
+    <section className="bg-[#0a0a0a]" id="visit-store">
       <div className="container-shell grid items-stretch gap-0 lg:grid-cols-2">
         {/* Image */}
         <motion.div
@@ -56,8 +57,9 @@ export function FitmentSection() {
             Rohtak
           </h2>
           <p className="mt-4 text-sm leading-7 text-white/80">
-            77+ years of trusted service. Genuine tyre brands, expert advice,
-            and fast same-day fitment at our Rohtak store.
+            77+ years of trusted service. Authorised Yokohama dealer (Yokohama Club
+            Network), genuine tyre brands, expert advice, and fast same-day fitment
+            at our Rohtak store opposite Pacific Mall.
           </p>
 
           {/* Info pills */}
@@ -69,7 +71,18 @@ export function FitmentSection() {
                   Location
                 </div>
                 <div className="mt-0.5 text-xs text-white/70">
-                  Punjab Tyre, Rohtak, Haryana
+                  {BUSINESS.name}, {FULL_ADDRESS}
+                </div>
+              </div>
+            </div>
+            <div className="flex items-start gap-3 rounded-2xl border border-white/8 bg-white/[0.04] px-4 py-3.5">
+              <Clock className="mt-0.5 h-4 w-4 shrink-0 text-[#E53935]" />
+              <div>
+                <div className="text-xs font-semibold text-white/90">
+                  Opening hours
+                </div>
+                <div className="mt-0.5 text-xs text-white/70">
+                  {BUSINESS.hoursDisplay.map((h) => `${h.label}: ${h.value}`).join(" · ")}
                 </div>
               </div>
             </div>

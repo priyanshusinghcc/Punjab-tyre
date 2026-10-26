@@ -9,10 +9,15 @@ import { AccessoriesSection } from "@/components/accessories-section";
 import { TestimonialsSection } from "@/components/testimonials-section";
 import { FAQSection } from "@/components/faq-section";
 import { SeoSection } from "@/components/seo-section";
+import { PopularLinks } from "@/components/popular-links";
+import { JsonLd } from "@/components/seo/json-ld";
+import { faqSchema } from "@/lib/schema";
+import { faqs } from "@/lib/data";
 
 export default function HomePage() {
   return (
     <>
+      <JsonLd data={faqSchema(faqs)} />
       <HeroSection />
       <TrustStrip />
       <HowItWorks />
@@ -24,6 +29,7 @@ export default function HomePage() {
       <TestimonialsSection />
       <FAQSection />
       <SeoSection />
+      <PopularLinks />
     </>
   );
 }

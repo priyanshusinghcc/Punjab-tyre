@@ -6,3 +6,4 @@ node_modules
 *.tsbuildinfo
 # Local order storage (dev only — production uses Upstash Redis)
 data/
+.backup-before-seo/
