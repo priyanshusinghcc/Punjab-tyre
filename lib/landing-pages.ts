@@ -582,6 +582,7 @@ export type AlloyBrandPage = {
   intro: string;
   points: string[];
   faqs: FaqItem[];
+  proof?: { src: string; alt: string; caption: string; title: string; text: string };
 };
 
 function alloyFaqs(name: string, authorised: boolean): FaqItem[] {
@@ -589,7 +590,7 @@ function alloyFaqs(name: string, authorised: boolean): FaqItem[] {
   if (authorised) {
     faqs.push({
       question: `Is Punjab Tyre an authorised ${name} alloy wheel dealer?`,
-      answer: `Yes. Punjab Tyre in Rohtak is an authorised ${name} store, selling genuine ${name} alloy wheels with manufacturer warranty and same-day fitment.`,
+      answer: `Yes. Punjab Tyre in Rohtak is an authorised ${name} store${name === "Advantec" ? " — an official Advantec Wheels Brand Wall Store" : ""}, selling genuine ${name} alloy wheels with manufacturer warranty and same-day fitment.`,
     });
   }
   faqs.push(
@@ -627,13 +628,18 @@ export const alloyBrandPages: AlloyBrandPage[] = [
     fullName: "Advantec alloy wheels",
     logo: "/logos/advantec.svg",
     authorised: true,
-    metaTitle: "Advantec Alloy Wheels Rohtak — Authorised Store",
+    metaTitle: "Advantec Alloy Wheels Rohtak — Authorised Brand Wall Store",
     metaDescription:
-      "Authorised Advantec alloy wheel store in Rohtak. Genuine flow-forged Advantec alloys for hatchbacks, sedans and SUVs, fitted with your tyres the same day at Punjab Tyre.",
+      "Official Advantec Wheels Brand Wall Store in Rohtak. Genuine flow-forged Advantec alloys for hatchbacks, sedans and SUVs, fitted with your tyres the same day at Punjab Tyre.",
     intro:
-      "Punjab Tyre is an authorised Advantec alloy wheel store in Rohtak. Choose from genuine Advantec flow-forged precision alloys for your hatchback, sedan or SUV — checked for correct fitment and fitted with your tyres the same day.",
+      "Punjab Tyre is an official Advantec Wheels Brand Wall Store in Rohtak. Choose from genuine Advantec flow-forged precision alloys for your hatchback, sedan or SUV — checked for correct fitment and fitted with your tyres the same day.",
+    proof: {
+      ...STORE_PHOTOS.advantecBrandWall,
+      title: "Official Advantec Wheels Brand Wall Store",
+      text: "Advantec Wheels welcomed Punjab Tyre to its Brand Wall Store family in Rohtak, Haryana. That means you see Advantec designs and finishes on display in our store, and you buy genuine Advantec wheels with manufacturer warranty directly from an authorised partner.",
+    },
     points: [
-      "Authorised Advantec store — genuine wheels with manufacturer warranty",
+      "Official Advantec Wheels Brand Wall Store — genuine wheels with manufacturer warranty",
       "Flow-forged precision alloys in a range of designs and sizes",
       ...COMMON_ALLOY_POINTS,
     ],

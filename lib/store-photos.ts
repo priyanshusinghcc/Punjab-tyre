@@ -29,6 +29,11 @@ export const STORE_PHOTOS = {
     alt: "Fresh stock of Yokohama tyres on racks at Punjab Tyre, Rohtak",
     caption: "Fresh tyre stock",
   },
+  advantecBrandWall: {
+    src: "/images/store/advantec-brand-wall-store.jpg",
+    alt: "Advantec Wheels welcomes Punjab Tyre, Rohtak to the Advantec Wheels Brand Wall Store family",
+    caption: "Advantec Wheels Brand Wall Store — Punjab Tyre, Rohtak",
+  },
 } satisfies Record<string, StorePhoto>;
 
 export const STORE_GALLERY: StorePhoto[] = [
