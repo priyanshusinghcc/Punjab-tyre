@@ -62,7 +62,6 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   },
-  icons: { icon: "/images/ptlogo.png", apple: "/images/ptlogo.png" },
   other: {
     "geo.region": "IN-HR",
     "geo.placename": BUSINESS.address.locality,
