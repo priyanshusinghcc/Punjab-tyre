@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { alloyBrandPages, brandPages, carModelPages, servicePages } from "@/lib/landing-pages";
+import { alloyBrandPages, brandPages, carModelPages, evModelPages, servicePages } from "@/lib/landing-pages";
 
 /** Internal links from the home page to the SEO landing pages. */
 export function PopularLinks() {
@@ -7,7 +7,11 @@ export function PopularLinks() {
     {
       title: "Tyre size by car",
       href: "/car-tyres",
-      links: carModelPages.slice(0, 18).map((c) => ({ label: `${c.displayName} tyres`, href: `/car-tyres/${c.slug}` })),
+      links: [
+        { label: "EV tyres", href: "/ev-tyres" },
+        ...evModelPages().map((c) => ({ label: `${c.brand} ${c.shortName} tyres`, href: `/car-tyres/${c.slug}` })),
+        ...carModelPages.filter((c) => !c.isEv).slice(0, 15).map((c) => ({ label: `${c.displayName} tyres`, href: `/car-tyres/${c.slug}` })),
+      ],
     },
     {
       title: "Tyre brands in Rohtak",

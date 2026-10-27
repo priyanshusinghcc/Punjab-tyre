@@ -647,12 +647,23 @@ export const carVehicleCatalog: VehicleBrand[] = [
     name: "Mahindra",
     models: [
       {
-        name: "BE 6e (Electric)",
+        name: "BE 6 (Electric)",
         variants: [
           { name: "Pack One 59 kWh (RWD)", bodyType: "Electric SUV Coupe" },
           { name: "Pack Two 59 kWh (RWD)", bodyType: "Electric SUV Coupe" },
           { name: "Pack Two 79 kWh (RWD)", bodyType: "Electric SUV Coupe" },
           { name: "Pack Three 79 kWh (RWD)", bodyType: "Electric SUV Coupe" },
+        ],
+      },
+      {
+        name: "XEV 9S (Electric)",
+        variants: [
+          { name: "Pack One Above 59 kWh", bodyType: "Electric SUV" },
+          { name: "Pack One Above 79 kWh", bodyType: "Electric SUV" },
+          { name: "Pack Two Above 70 kWh (6/7 seat)", bodyType: "Electric SUV" },
+          { name: "Pack Two Above 79 kWh (6/7 seat)", bodyType: "Electric SUV" },
+          { name: "Pack Three 79 kWh (6/7 seat)", bodyType: "Electric SUV" },
+          { name: "Pack Three Above 79 kWh (6/7 seat)", bodyType: "Electric SUV" },
         ],
       },
       {

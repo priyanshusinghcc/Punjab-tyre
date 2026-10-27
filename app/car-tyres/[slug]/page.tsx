@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { LandingShell } from "@/components/landing/landing-shell";
-import { brandPages, carModelFaqs, carModelPages, carWhatsAppMessage } from "@/lib/landing-pages";
+import { brandPages, carModelFaqs, carModelPages, carWhatsAppMessage, evTyrePoints } from "@/lib/landing-pages";
+import { BulletCard } from "@/components/landing/landing-shell";
 
 export const dynamicParams = false;
 
@@ -15,8 +16,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const page = carModelPages.find((c) => c.slug === slug);
   if (!page) return {};
   const sizes = page.sizes.map((s) => s.size).join(", ");
-  const title = `${page.displayName} Tyre Size & Price in Rohtak`;
-  const description = `${page.displayName} tyre size by variant: ${sizes}. Buy Yokohama, CEAT, Michelin, Apollo & Goodyear tyres for your ${page.shortName} in Rohtak with same-day fitment.`;
+  const title = page.isEv
+    ? `${page.brand} ${page.shortName} Tyres in Rohtak — EV Tyre Size & Price`
+    : `${page.displayName} Tyre Size & Price in Rohtak`;
+  const description = page.isEv
+    ? `${page.brand} ${page.shortName} tyres available in Rohtak. OEM size ${sizes}. EV-ready tyres with the right load rating, fitted the same day at Punjab Tyre (Yokohama Club Network).`
+    : `${page.displayName} tyre size by variant: ${sizes}. Buy Yokohama, CEAT, Michelin, Apollo & Goodyear tyres for your ${page.shortName} in Rohtak with same-day fitment.`;
   return {
     title,
     description,
@@ -31,8 +36,9 @@ export default async function CarTyrePage({ params }: { params: Promise<{ slug: 
   if (!page) notFound();
 
   const sizeList = page.sizes.map((s) => s.size).join(", ");
-  const intro =
-    page.sizes.length === 1
+  const intro = page.isEv
+    ? `Tyres for the ${page.brand} ${page.shortName} are available at Punjab Tyre, Rohtak. It uses ${sizeList} tyres as company fitment — and as an electric SUV it needs tyres with the right load rating, low rolling resistance and low noise. Fitted the same day with alignment and balancing.`
+    : page.sizes.length === 1
       ? `The ${page.displayName} comes from the factory on ${page.sizes[0].size} tyres. Get genuine tyres in this size from Yokohama, CEAT, Apollo, Goodyear and Michelin at Punjab Tyre, Rohtak — fitted the same day.`
       : `The ${page.displayName} uses ${sizeList} tyres, depending on the variant. Find your variant below, then get genuine tyres in that size at Punjab Tyre, Rohtak — fitted the same day.`;
 
@@ -49,8 +55,8 @@ export default async function CarTyrePage({ params }: { params: Promise<{ slug: 
         { name: "Car tyre sizes", path: "/car-tyres" },
         { name: page.displayName, path: `/car-tyres/${page.slug}` },
       ]}
-      eyebrow={`${page.brand} · ${page.bodyType}`}
-      title={`${page.displayName} Tyre Size & Price in Rohtak`}
+      eyebrow={page.isEv ? `${page.brand} · EV tyres in stock` : `${page.brand} · ${page.bodyType}`}
+      title={page.isEv ? `${page.brand} ${page.shortName} Tyres in Rohtak — Size & Price` : `${page.displayName} Tyre Size & Price in Rohtak`}
       intro={intro}
       whatsappMessage={carWhatsAppMessage(page)}
       faqs={carModelFaqs(page)}
@@ -85,6 +91,15 @@ export default async function CarTyrePage({ params }: { params: Promise<{ slug: 
               </tbody>
             </table>
           </div>
+
+          {page.isEv && (
+            <div className="mt-10">
+              <BulletCard title={`What makes ${page.shortName} tyres different`} items={evTyrePoints} />
+              <p className="mt-3 text-sm text-black/55">
+                See all <Link href="/ev-tyres" className="font-semibold text-[#E53935] hover:underline">EV tyres in Rohtak</Link>.
+              </p>
+            </div>
+          )}
 
           <div className="mt-10 rounded-3xl bg-[#0a0a0a] p-7 text-white md:p-9">
             <h2 className="text-xl font-bold">Best tyre options for your {page.shortName}</h2>

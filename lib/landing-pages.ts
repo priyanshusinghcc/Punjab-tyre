@@ -467,6 +467,9 @@ const POPULAR_CARS: [string, string, string?][] = [
   ["Mahindra", "XUV 3XO"],
   ["Mahindra", "Bolero"],
   ["Mahindra", "Bolero Neo"],
+  ["Mahindra", "BE 6 (Electric)", "mahindra-be-6"],
+  ["Mahindra", "XEV 9e (Electric)", "mahindra-xev-9e"],
+  ["Mahindra", "XEV 9S (Electric)", "mahindra-xev-9s"],
   ["Toyota", "Fortuner"],
   ["Toyota", "Innova Crysta"],
   ["Toyota", "Innova Hycross"],
@@ -502,6 +505,7 @@ export type CarModelPage = {
   shortName: string; // "Creta"
   bodyType: string;
   sizes: CarSizeGroup[];
+  isEv: boolean;
 };
 
 function buildCarPage(brandName: string, modelName: string, slug?: string): CarModelPage | null {
@@ -531,6 +535,7 @@ function buildCarPage(brandName: string, modelName: string, slug?: string): CarM
     shortName,
     bodyType: model.variants[0]?.bodyType ?? "Car",
     sizes: groups,
+    isEv: /electric|\bev\b/i.test(model.name),
   };
 }
 
@@ -538,9 +543,44 @@ export const carModelPages: CarModelPage[] = POPULAR_CARS.map(([b, m, slug]) => 
   (p): p is CarModelPage => p !== null,
 );
 
+export const evTyrePoints = [
+  "Higher load capacity — EV batteries make the car heavier, so the tyre needs the right load index (often XL)",
+  "Low rolling resistance to protect your driving range",
+  "Quieter tread — with no engine noise, tyre noise is what you hear",
+  "Tougher compound for instant electric torque, which wears ordinary tyres faster",
+];
+
+export const evModelPages = () => carModelPages.filter((c) => c.isEv);
+
 export function carModelFaqs(page: CarModelPage): FaqItem[] {
   const sizeList = page.sizes.map((s) => s.size).join(", ");
   const single = page.sizes.length === 1;
+  if (page.isEv) {
+    return [
+      {
+        question: `What is the tyre size of the ${page.displayName}?`,
+        answer: single
+          ? `The ${page.displayName} comes with ${page.sizes[0].size} tyres as company (OEM) fitment. Some variants can be specified with different wheels, so confirm the size printed on your tyre's sidewall.`
+          : `The ${page.displayName} comes with ${sizeList} tyres as company (OEM) fitment, depending on the variant.`,
+      },
+      {
+        question: `Are ${page.shortName} tyres available in Rohtak?`,
+        answer: `Yes. Punjab Tyre (Yokohama Club Network), opposite Pacific Mall in Rohtak, has tyres for the ${page.shortName} available at the store, with same-day fitment, alignment and balancing.`,
+      },
+      {
+        question: `Do electric cars like the ${page.shortName} need special tyres?`,
+        answer: `They need tyres with the correct load index for the heavier battery, and EV-ready tyres also give lower rolling resistance (better range) and less noise. Always match or exceed the original load and speed rating — we check this for you before fitting.`,
+      },
+      {
+        question: `Why do EV tyres wear out faster?`,
+        answer: `Electric motors deliver full torque instantly and EVs are heavier than petrol or diesel cars of the same size, so tyres work harder. Correct pressure, regular rotation and wheel alignment every 5,000–10,000 km help them last.`,
+      },
+      {
+        question: `What is the price of ${page.shortName} tyres in Rohtak?`,
+        answer: `It depends on the brand and pattern. Send your ${page.shortName} variant on WhatsApp to +91 98960 53958 and we'll reply with current prices for the options in stock.`,
+      },
+    ];
+  }
   return [
     {
       question: `What is the tyre size of the ${page.displayName}?`,

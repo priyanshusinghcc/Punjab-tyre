@@ -164,6 +164,11 @@ export function SiteFooter() {
                 </li>
               ))}
               <li className="col-span-2">
+                <Link href="/ev-tyres" className={linkClass}>
+                  EV tyres (BE 6, XEV 9e, XEV 9S)
+                </Link>
+              </li>
+              <li className="col-span-2">
                 <Link href="/car-tyres" className="text-sm font-semibold text-[#E53935] hover:underline">
                   All cars →
                 </Link>

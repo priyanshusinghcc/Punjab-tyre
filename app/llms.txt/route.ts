@@ -34,6 +34,9 @@ export function GET() {
       (a) => `- [${a.authorised ? `Authorised ${a.name} store in Rohtak` : `${a.name} alloy wheels in Rohtak`}](${SITE_URL}/alloy-wheels/${a.slug})`,
     ),
     "",
+    "## EV tyres",
+    `- [EV tyres in Rohtak](${SITE_URL}/ev-tyres): tyres for Mahindra BE 6, XEV 9e and XEV 9S available in store`,
+    "",
     "## Tyre size by car model",
     ...carModelPages.map(
       (c) => `- [${c.displayName}](${SITE_URL}/car-tyres/${c.slug}): ${c.sizes.map((s) => s.size).join(", ")}`,

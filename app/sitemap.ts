@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("/brands", 0.8),
     entry("/car-tyres", 0.8),
     entry("/alloy-wheels", 0.8),
+    entry("/ev-tyres", 0.8),
     ...alloyBrandPages.map((a) => entry(`/alloy-wheels/${a.slug}`, a.authorised ? 0.8 : 0.7)),
     entry("/privacy", 0.2),
     ...servicePages.map((s) => entry(`/services/${s.slug}`, 0.7)),

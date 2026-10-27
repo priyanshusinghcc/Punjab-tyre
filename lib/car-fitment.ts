@@ -375,8 +375,11 @@ export function getCarOemFitment(
   // 4. MAHINDRA
   // =============================================================
   if (b.includes("mahindra")) {
-    if (m.includes("be 6e") || m.includes("xev 9e")) {
-      return mk("245/55 R19", "19\" Aero Alloy", "Company OEM electric flagship aero alloy fitment.");
+    if (m.includes("xev 9s")) {
+      return mk("235/60 R18", "18\" Alloy", "Company OEM fitment on the XEV 9S electric SUV.");
+    }
+    if (m.includes("be 6") || m.includes("xev 9e")) {
+      return mk("245/55 R19", "19\" Aero Alloy", "Company OEM standard fitment. Some top variants can be specified with 20\" wheels — check your tyre sidewall.");
     }
     if (m.includes("xuv400") || m.includes("xuv 3xo ev")) {
       return mk("205/65 R16", "16\" Diamond Cut Alloy", "Company OEM EV high efficiency fitment.");
