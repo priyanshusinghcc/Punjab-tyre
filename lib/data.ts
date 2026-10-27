@@ -973,8 +973,8 @@ export type AlloyItem = {
 };
 
 export const alloyWheels: AlloyItem[] = [
-  { name: "Neo", note: "Sporty designs for modern cars", logo: "/logos/neo.svg", slug: "neo" },
   { name: "Advantec", note: "Flow-forged precision alloys", logo: "/logos/advantec.svg", slug: "advantec", authorised: true },
+  { name: "Neo", note: "Sporty designs for modern cars", logo: "/logos/neo.svg", slug: "neo" },
   { name: "Onyx Wheels", note: "High performance custom alloys", logo: "/logos/onyx.svg", slug: "onyx" },
   { name: "Incubus Alloys", note: "Performance styling & rugged aesthetics", logo: "/logos/incubus.png", slug: "incubus" },
   { name: "Uno Minda", note: "Reliable aftermarket choice", logo: "/logos/unominda.png", slug: "uno-minda" },

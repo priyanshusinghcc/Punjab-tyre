@@ -50,7 +50,7 @@ export const BUSINESS = {
   authorisedBrands: ["Yokohama", "Advantec"],
   carTyreBrands: ["Yokohama", "CEAT", "Apollo", "Goodyear", "Michelin"],
   bikeTyreBrands: ["CEAT", "Apollo", "Michelin", "TVS", "BKT"],
-  alloyBrands: ["Neo", "Advantec", "Onyx Wheels", "Incubus Alloys", "Uno Minda"],
+  alloyBrands: ["Advantec", "Neo", "Onyx Wheels", "Incubus Alloys", "Uno Minda"],
 };
 
 export const FULL_ADDRESS = `${BUSINESS.address.street}, ${BUSINESS.address.locality}, ${BUSINESS.address.region} ${BUSINESS.address.postalCode}`;
