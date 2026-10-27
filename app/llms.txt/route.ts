@@ -35,7 +35,7 @@ export function GET() {
     ),
     "",
     "## EV tyres",
-    `- [EV tyres in Rohtak](${SITE_URL}/ev-tyres): tyres for Mahindra BE 6, XEV 9e and XEV 9S available in store`,
+    `- [EV tyres in Rohtak](${SITE_URL}/ev-tyres): Yokohama Geolandar X-CV in stock for Mahindra BE 6 and XEV 9e (245/55 R19) and XEV 9S (235/60 R18)`,
     "",
     "## Tyre size by car model",
     ...carModelPages.map(

@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BulletCard, LandingShell } from "@/components/landing/landing-shell";
-import { evModelPages, evTyrePoints, type FaqItem } from "@/lib/landing-pages";
+import { EV_TYRE, evModelPages, evTyrePoints, type FaqItem } from "@/lib/landing-pages";
 import { serviceSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "EV Tyres in Rohtak — Mahindra BE 6, XEV 9e & XEV 9S",
   description:
-    "Tyres for electric cars in Rohtak: Mahindra BE 6, XEV 9e and XEV 9S tyres available at Punjab Tyre. Correct load rating, low rolling resistance, same-day fitment.",
+    "EV tyres in Rohtak: Yokohama Geolandar X-CV for the Mahindra BE 6, XEV 9e and XEV 9S, in stock at Punjab Tyre. Correct load rating, same-day fitment.",
   alternates: { canonical: "/ev-tyres" },
 };
 
@@ -16,6 +16,11 @@ const faqs: FaqItem[] = [
     question: "Where can I buy EV tyres in Rohtak?",
     answer:
       "Punjab Tyre (Yokohama Club Network), opposite Pacific Mall in Rohtak, has tyres for the Mahindra BE 6, XEV 9e and XEV 9S available at the store, with same-day fitment, alignment and balancing.",
+  },
+  {
+    question: "Which tyre do you recommend for the Mahindra BE 6, XEV 9e and XEV 9S?",
+    answer:
+      "The Yokohama Geolandar X-CV (G057) — a premium crossover-SUV tyre suitable for EVs, with an asymmetric tread for grip, a comfortable quiet ride and long tread life. We stock it in 245/55 R19 (BE 6, XEV 9e) and 235/60 R18 (XEV 9S).",
   },
   {
     question: "Can I fit normal tyres on an electric car?",
@@ -36,7 +41,7 @@ export default function EvTyresPage() {
       crumbs={[{ name: "EV tyres", path: "/ev-tyres" }]}
       eyebrow="Electric vehicles · In stock"
       title="EV Tyres in Rohtak"
-      intro="Driving a Mahindra BE 6, XEV 9e or XEV 9S? Tyres for all three are available at our Rohtak store — with the correct load rating for your EV, fitted the same day with alignment and balancing."
+      intro="Driving a Mahindra BE 6, XEV 9e or XEV 9S? We stock the Yokohama Geolandar X-CV in the right size for all three at our Rohtak store — fitted the same day with alignment and balancing."
       whatsappMessage="Hi Punjab Tyre, I need tyres for my electric car. Please share options and prices."
       faqs={faqs}
       extraSchema={[serviceSchema({ name: "EV tyres in Rohtak", description: "Tyres for Mahindra BE 6, XEV 9e and XEV 9S electric SUVs, fitted in Rohtak.", path: "/ev-tyres" })]}
@@ -58,14 +63,15 @@ export default function EvTyresPage() {
                     {c.brand} {c.shortName}
                   </span>
                   <span className="mt-1 block text-sm text-black/55">
-                    {c.sizes.map((s) => s.size).join(" · ")}
+                    Geolandar X-CV · {c.sizes.map((s) => s.size).join(" · ")}
                   </span>
                   <span className="mt-4 block text-sm font-semibold text-[#E53935]">See sizes & prices →</span>
                 </Link>
               </li>
             ))}
           </ul>
-          <div className="mt-8">
+          <div className="mt-8 grid gap-5 md:grid-cols-2">
+            <BulletCard title={`In stock: ${EV_TYRE.fullName}`} items={EV_TYRE.points} />
             <BulletCard title="What makes EV tyres different" items={evTyrePoints} />
           </div>
         </div>

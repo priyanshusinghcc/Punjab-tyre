@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { LandingShell } from "@/components/landing/landing-shell";
-import { brandPages, carModelFaqs, carModelPages, carWhatsAppMessage, evTyrePoints } from "@/lib/landing-pages";
+import { brandPages, carModelFaqs, carModelPages, carWhatsAppMessage, EV_TYRE, evTyrePoints } from "@/lib/landing-pages";
+import Image from "next/image";
+import { buildWhatsAppLink } from "@/lib/utils";
 import { BulletCard } from "@/components/landing/landing-shell";
 
 export const dynamicParams = false;
@@ -20,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     ? `${page.brand} ${page.shortName} Tyres in Rohtak — EV Tyre Size & Price`
     : `${page.displayName} Tyre Size & Price in Rohtak`;
   const description = page.isEv
-    ? `${page.brand} ${page.shortName} tyres available in Rohtak. OEM size ${sizes}. EV-ready tyres with the right load rating, fitted the same day at Punjab Tyre (Yokohama Club Network).`
+    ? `${page.brand} ${page.shortName} tyres in Rohtak: Yokohama Geolandar X-CV in ${sizes}, in stock. EV-ready, fitted the same day at Punjab Tyre (Yokohama Club Network).`
     : `${page.displayName} tyre size by variant: ${sizes}. Buy Yokohama, CEAT, Michelin, Apollo & Goodyear tyres for your ${page.shortName} in Rohtak with same-day fitment.`;
   return {
     title,
@@ -37,7 +39,7 @@ export default async function CarTyrePage({ params }: { params: Promise<{ slug: 
 
   const sizeList = page.sizes.map((s) => s.size).join(", ");
   const intro = page.isEv
-    ? `Tyres for the ${page.brand} ${page.shortName} are available at Punjab Tyre, Rohtak. It uses ${sizeList} tyres as company fitment — and as an electric SUV it needs tyres with the right load rating, low rolling resistance and low noise. Fitted the same day with alignment and balancing.`
+    ? `The Yokohama Geolandar X-CV for the ${page.brand} ${page.shortName} is in stock at Punjab Tyre, Rohtak, in the company-fitment size ${sizeList}. As an electric SUV it needs tyres with the right load rating, low rolling resistance and low noise — fitted the same day with alignment and balancing.`
     : page.sizes.length === 1
       ? `The ${page.displayName} comes from the factory on ${page.sizes[0].size} tyres. Get genuine tyres in this size from Yokohama, CEAT, Apollo, Goodyear and Michelin at Punjab Tyre, Rohtak — fitted the same day.`
       : `The ${page.displayName} uses ${sizeList} tyres, depending on the variant. Find your variant below, then get genuine tyres in that size at Punjab Tyre, Rohtak — fitted the same day.`;
@@ -91,6 +93,36 @@ export default async function CarTyrePage({ params }: { params: Promise<{ slug: 
               </tbody>
             </table>
           </div>
+
+          {page.isEv && (
+            <div className="mt-10 grid items-start gap-5 rounded-3xl border border-[#E53935]/20 bg-white p-7 md:grid-cols-[1fr_auto] md:p-9">
+              <div>
+                <span className="inline-flex rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11px] font-semibold text-emerald-700">
+                  In stock · {page.sizes[0].size}
+                </span>
+                <h2 className="mt-3 text-2xl font-black text-black">
+                  Recommended for the {page.shortName}: {EV_TYRE.fullName}
+                </h2>
+                <ul className="mt-4 space-y-2.5">
+                  {EV_TYRE.points.map((p) => (
+                    <li key={p} className="flex gap-3 text-sm leading-6 text-black/70">
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#E53935]" />
+                      {p}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href={buildWhatsAppLink(`Hi Punjab Tyre, I want the Yokohama Geolandar X-CV for my ${page.brand} ${page.shortName} (${page.sizes[0].size}). Please share the price.`)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#E53935] px-5 py-3 text-sm font-semibold text-white hover:bg-[#cf3330]"
+                >
+                  Get Geolandar X-CV price on WhatsApp →
+                </a>
+              </div>
+              <Image src={EV_TYRE.logo} alt="Yokohama logo" width={160} height={48} className="h-9 w-auto md:mt-2" />
+            </div>
+          )}
 
           {page.isEv && (
             <div className="mt-10">

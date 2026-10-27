@@ -311,7 +311,8 @@ export const brandPages: BrandPage[] = [
       "Punjab Tyre is an authorised Yokohama dealer and part of the Yokohama Club Network in Rohtak. Buy genuine, fresh-stock Yokohama tyres for hatchbacks, sedans and SUVs — with manufacturer warranty and same-day fitment.",
     points: [
       "Authorised Yokohama Club Network store — genuine tyres, manufacturer warranty",
-      "Ranges for comfort, mileage and SUV use, including BluEarth and Geolandar",
+      "Ranges for comfort, mileage and SUV use, including BluEarth, Geolandar and Geolandar X-CV",
+      "Geolandar X-CV in stock for the Mahindra BE 6, XEV 9e and XEV 9S electric SUVs",
       "Popular with Rohtak customers for Scorpio-N, Taigun, Creta and other SUVs",
       "Fitment, alignment, balancing and nitrogen inflation included",
     ],
@@ -552,6 +553,22 @@ export const evTyrePoints = [
 
 export const evModelPages = () => carModelPages.filter((c) => c.isEv);
 
+/** The EV tyre stocked at Punjab Tyre for the Mahindra BE 6, XEV 9e and XEV 9S. */
+export const EV_TYRE = {
+  brand: "Yokohama",
+  name: "Geolandar X-CV",
+  pattern: "G057",
+  fullName: "Yokohama Geolandar X-CV (G057)",
+  logo: "/logos/yokohama.svg",
+  points: [
+    "Built for premium crossover SUVs and suitable for EVs",
+    "Asymmetric tread for confident grip and stable highway handling",
+    "Comfort-focused for a smooth, quiet ride",
+    "Long-lasting tread for high-mileage driving",
+    "Genuine stock from an authorised Yokohama Club Network dealer",
+  ],
+};
+
 export function carModelFaqs(page: CarModelPage): FaqItem[] {
   const sizeList = page.sizes.map((s) => s.size).join(", ");
   const single = page.sizes.length === 1;
@@ -565,7 +582,11 @@ export function carModelFaqs(page: CarModelPage): FaqItem[] {
       },
       {
         question: `Are ${page.shortName} tyres available in Rohtak?`,
-        answer: `Yes. Punjab Tyre (Yokohama Club Network), opposite Pacific Mall in Rohtak, has tyres for the ${page.shortName} available at the store, with same-day fitment, alignment and balancing.`,
+        answer: `Yes. Punjab Tyre (Yokohama Club Network), opposite Pacific Mall in Rohtak, has the Yokohama Geolandar X-CV in the ${page.shortName}'s size (${page.sizes[0].size}) available at the store, with same-day fitment, alignment and balancing.`,
+      },
+      {
+        question: `Which tyre is best for the ${page.brand} ${page.shortName}?`,
+        answer: `We recommend the Yokohama Geolandar X-CV (G057) — a premium crossover-SUV tyre suitable for EVs, with an asymmetric tread for grip, a comfortable quiet ride and long tread life. It is in stock at our Rohtak store in ${page.sizes[0].size}.`,
       },
       {
         question: `Do electric cars like the ${page.shortName} need special tyres?`,
