@@ -11,7 +11,7 @@ import { ReviewsCarousel } from "@/components/reviews-carousel";
  */
 
 const categories = [
-  { id: "all", label: "All Reviews (760+)" },
+  { id: "all", label: `All Reviews (${Math.floor(siteCopy.googleReviewCount / 10) * 10}+)` },
   { id: "yokohama", label: "Yokohama Tyres" },
   { id: "suv", label: "SUV & Sedan Fitment" },
   { id: "service", label: "Store Service & Staff" },
