@@ -1,5 +1,6 @@
 // lib/schema.ts — JSON-LD structured data builders (schema.org)
 import { BUSINESS, SITE_URL } from "./business";
+import { STORE_GALLERY } from "./store-photos";
 
 export const BUSINESS_ID = `${SITE_URL}/#business`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;
@@ -15,7 +16,7 @@ export function localBusinessSchema() {
       "Authorised Yokohama tyre dealer (Yokohama Club Network) and authorised Advantec alloy wheel store in Rohtak, Haryana, serving drivers since 1949. Car and bike tyres from Yokohama, CEAT, Apollo, Goodyear and Michelin; alloy wheels from Advantec, Neo, Onyx, Incubus and Uno Minda; car accessories; and same-day fitment with wheel alignment, balancing and nitrogen inflation.",
     url: SITE_URL,
     logo: `${SITE_URL}/images/ptlogo.png`,
-    image: [`${SITE_URL}/images/pt-front.jpg`],
+    image: [`${SITE_URL}/images/pt-front.jpg`, ...STORE_GALLERY.map((p) => `${SITE_URL}${p.src}`)],
     telephone: BUSINESS.phone,
     foundingDate: String(BUSINESS.foundingYear),
     priceRange: "₹₹",

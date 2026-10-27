@@ -11,7 +11,7 @@ import { ReviewsCarousel } from "@/components/reviews-carousel";
  */
 
 const categories = [
-  { id: "all", label: "All Reviews (754+)" },
+  { id: "all", label: "All Reviews (760+)" },
   { id: "yokohama", label: "Yokohama Tyres" },
   { id: "suv", label: "SUV & Sedan Fitment" },
   { id: "service", label: "Store Service & Staff" },
@@ -200,7 +200,7 @@ export function TestimonialsSection() {
             rel="noreferrer"
             className="inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-xs sm:text-sm font-semibold text-white backdrop-blur transition-all hover:bg-white/20 hover:border-white/30"
           >
-            <span>Read all 754+ Reviews</span>
+            <span>Read all {liveData.reviewCount}+ Reviews</span>
             <ExternalLink className="h-3.5 w-3.5" />
           </a>
         </div>

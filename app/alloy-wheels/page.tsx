@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { BulletCard, LandingShell } from "@/components/landing/landing-shell";
+import { BulletCard, LandingShell, PhotoCard } from "@/components/landing/landing-shell";
+import { STORE_PHOTOS } from "@/lib/store-photos";
 import { alloyBrandPages, alloyOverview, carModelPages } from "@/lib/landing-pages";
 import { serviceSchema } from "@/lib/schema";
 
@@ -45,9 +46,14 @@ export default function AlloyWheelsIndex() {
               </Link>
             ))}
           </div>
-          <div className="mt-8 grid gap-5 md:grid-cols-2">
+          <div className="mt-8 grid items-start gap-5 md:grid-cols-[1fr_1fr_300px]">
             <BulletCard title={alloyOverview.signsTitle} items={alloyOverview.signs} />
             <BulletCard title={alloyOverview.howTitle} items={alloyOverview.how} />
+            <PhotoCard
+              src={STORE_PHOTOS.alloyDisplay.src}
+              alt={STORE_PHOTOS.alloyDisplay.alt}
+              caption="Our alloy wheel display wall"
+            />
           </div>
         </div>
       </section>

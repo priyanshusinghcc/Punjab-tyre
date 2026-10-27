@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { BulletCard, LandingShell } from "@/components/landing/landing-shell";
+import { BulletCard, LandingShell, PhotoCard } from "@/components/landing/landing-shell";
 import { brandPages, carModelPages, servicePages } from "@/lib/landing-pages";
 
 export const dynamicParams = false;
@@ -63,9 +63,20 @@ export default async function BrandPage({ params }: { params: Promise<{ slug: st
       <section className="bg-[#f7f7f7]">
         <div className="container-shell grid items-start gap-5 py-14 md:grid-cols-[1fr_280px]">
           <BulletCard title={`Why buy ${page.name} tyres at Punjab Tyre`} items={page.points} />
-          <div className="flex h-full min-h-[180px] items-center justify-center rounded-3xl border border-black/[0.07] bg-white p-8">
-            <Image src={page.logo} alt={`${page.name} tyres logo`} width={200} height={80} className="h-auto max-h-20 w-auto" />
-          </div>
+          {page.photo ? (
+            <PhotoCard
+              src={page.photo.src}
+              alt={page.photo.alt}
+              caption={`${page.photo.caption} at our Rohtak store`}
+              logo={page.logo}
+              logoAlt={`${page.name} logo`}
+              badge={page.authorised ? "Authorised" : undefined}
+            />
+          ) : (
+            <div className="flex h-full min-h-[180px] items-center justify-center rounded-3xl border border-black/[0.07] bg-white p-8">
+              <Image src={page.logo} alt={`${page.name} tyres logo`} width={200} height={80} className="h-auto max-h-20 w-auto" />
+            </div>
+          )}
         </div>
       </section>
     </LandingShell>

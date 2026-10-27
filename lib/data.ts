@@ -1122,8 +1122,8 @@ export const siteCopy = {
   writeReviewUrl:
     "https://search.google.com/local/writereview?placeid=ChIJT3PZ_iaFDTkRjzTd74YkDLA",
   googleRating: 4.8,
-  googleReviewCount: 754,
-  googleReviewCountFormatted: "750+ Google Reviews",
+  googleReviewCount: 762,
+  googleReviewCountFormatted: "760+ Google Reviews",
   heroTrust: [
     "77+ Years Experience",
     "Same-day fitment in Rohtak",

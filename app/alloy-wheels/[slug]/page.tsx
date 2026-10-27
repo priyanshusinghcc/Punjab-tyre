@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { notFound } from "next/navigation";
-import { BulletCard, LandingShell } from "@/components/landing/landing-shell";
+import { BulletCard, LandingShell, PhotoCard } from "@/components/landing/landing-shell";
+import { STORE_PHOTOS } from "@/lib/store-photos";
 import { alloyBrandPages, carModelPages } from "@/lib/landing-pages";
 import { BUSINESS_ID } from "@/lib/schema";
 import { SITE_URL } from "@/lib/business";
@@ -70,14 +70,14 @@ export default async function AlloyBrandPage({ params }: { params: Promise<{ slu
       <section className="bg-[#f7f7f7]">
         <div className="container-shell grid items-start gap-5 py-14 md:grid-cols-[1fr_280px]">
           <BulletCard title={`Why buy ${page.fullName} at Punjab Tyre`} items={page.points} />
-          <div className="relative flex h-full min-h-[180px] items-center justify-center rounded-3xl border border-black/[0.07] bg-white p-8">
-            {page.authorised && (
-              <span className="absolute left-4 top-4 rounded-full bg-[#E53935]/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-[#E53935]">
-                Authorised store
-              </span>
-            )}
-            <Image src={page.logo} alt={`${page.name} alloy wheels logo`} width={200} height={80} className="h-auto max-h-20 w-auto" />
-          </div>
+          <PhotoCard
+            src={STORE_PHOTOS.alloyDisplay.src}
+            alt={STORE_PHOTOS.alloyDisplay.alt}
+            caption="Alloy wheel display at our Rohtak store"
+            logo={page.logo}
+            logoAlt={`${page.name} alloy wheels logo`}
+            badge={page.authorised ? "Authorised store" : undefined}
+          />
         </div>
       </section>
     </LandingShell>

@@ -7,3 +7,4 @@ node_modules
 # Local order storage (dev only — production uses Upstash Redis)
 data/
 .backup-before-seo/
+photos-to-add/

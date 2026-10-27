@@ -46,7 +46,7 @@ export const BUSINESS = {
     "https://search.google.com/local/writereview?placeid=ChIJT3PZ_iaFDTkRjzTd74YkDLA",
   instagramUrl: "https://www.instagram.com/punjabtyrerohtak/",
   googleRating: 4.8,
-  googleReviewCount: 754,
+  googleReviewCount: 762,
   authorisedBrands: ["Yokohama", "Advantec"],
   carTyreBrands: ["Yokohama", "CEAT", "Apollo", "Goodyear", "Michelin"],
   bikeTyreBrands: ["CEAT", "Apollo", "Michelin", "TVS", "BKT"],

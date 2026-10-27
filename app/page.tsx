@@ -11,6 +11,7 @@ import { FAQSection } from "@/components/faq-section";
 import { SeoSection } from "@/components/seo-section";
 import { PopularLinks } from "@/components/popular-links";
 import { CallbackSection } from "@/components/callback-section";
+import { StoreGallery } from "@/components/store-gallery";
 import { JsonLd } from "@/components/seo/json-ld";
 import { faqSchema } from "@/lib/schema";
 import { faqs } from "@/lib/data";
@@ -25,6 +26,7 @@ export default function HomePage() {
       <ServicesSection />
       <BrandSection />
       <FitmentSection />
+      <StoreGallery />
       <AlloyWheelsSection />
       <AccessoriesSection />
       <TestimonialsSection />

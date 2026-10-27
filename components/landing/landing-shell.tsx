@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Clock, MapPin, PhoneCall, Star } from "lucide-react";
 import { buildWhatsAppLink } from "@/lib/utils";
@@ -210,5 +211,47 @@ export function BulletCard({ title, items }: { title: string; items: string[] })
         ))}
       </ul>
     </div>
+  );
+}
+
+/** Real store photo with an optional brand logo badge. */
+export function PhotoCard({
+  src,
+  alt,
+  caption,
+  logo,
+  logoAlt,
+  badge,
+}: {
+  src: string;
+  alt: string;
+  caption?: string;
+  logo?: string;
+  logoAlt?: string;
+  badge?: string;
+}) {
+  return (
+    <figure className="relative aspect-[3/4] overflow-hidden rounded-3xl border border-black/[0.07] bg-black/5">
+      <Image src={src} alt={alt} fill sizes="(min-width: 768px) 320px, 100vw" className="object-cover" />
+      {(logo || badge) && (
+        <div className="absolute left-3 top-3 flex items-center gap-2">
+          {logo && (
+            <span className="rounded-xl bg-white/95 px-3 py-2 shadow-sm">
+              <Image src={logo} alt={logoAlt ?? ""} width={110} height={36} className="h-6 w-auto" />
+            </span>
+          )}
+          {badge && (
+            <span className="rounded-full bg-[#E53935] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-white">
+              {badge}
+            </span>
+          )}
+        </div>
+      )}
+      {caption && (
+        <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 to-transparent px-4 pb-3 pt-10 text-xs font-semibold text-white">
+          {caption}
+        </figcaption>
+      )}
+    </figure>
   );
 }

@@ -3,6 +3,7 @@
 
 import { carVehicleCatalog } from "./car-catalog";
 import { getVehicleOemFitment } from "./oem-fitment";
+import { STORE_PHOTOS } from "./store-photos";
 
 export type FaqItem = { question: string; answer: string };
 
@@ -275,6 +276,7 @@ export type BrandPage = {
   intro: string;
   points: string[];
   faqs: FaqItem[];
+  photo?: { src: string; alt: string; caption: string };
 };
 
 function standardBrandFaqs(name: string, vehicles: string): FaqItem[] {
@@ -300,6 +302,7 @@ export const brandPages: BrandPage[] = [
     name: "Yokohama",
     logo: "/logos/yokohama.svg",
     authorised: true,
+    photo: STORE_PHOTOS.rangeDisplay,
     vehicles: "car and SUV",
     metaTitle: "Yokohama Tyres Rohtak — Authorised Dealer",
     metaDescription:
