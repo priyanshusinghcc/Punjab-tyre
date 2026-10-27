@@ -6,7 +6,7 @@ import { Star, ExternalLink, PenLine } from "lucide-react";
 import { ReviewsCarousel } from "@/components/reviews-carousel";
 
 /**
- * TestimonialsSection — Live Google Reviews showcase for Punjab Tyre, Rohtak.
+ * TestimonialsSection — Google review highlights for Punjab Tyre, Rohtak.
  * Connects directly to verified Google Maps listing (Yokohama Club Network - Punjab Tyre).
  */
 
@@ -59,16 +59,15 @@ export function TestimonialsSection() {
 
   return (
     <section id="reviews" className="container-shell py-20">
-      {/* Header with Live Google Rating summary card */}
+      {/* Header with Google rating summary card */}
       <div className="mb-10 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
         <div className="max-w-2xl">
           <div className="flex items-center gap-2">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#E53935]">
               Customer Reviews
             </p>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11px] font-semibold text-emerald-700">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              Live on Google Maps
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-black/[0.04] px-2.5 py-0.5 text-[11px] font-semibold text-black/60">
+              From Google Maps
             </span>
           </div>
           <h2 className="mt-2 text-3xl font-black tracking-tight text-black md:text-4xl">
@@ -80,7 +79,7 @@ export function TestimonialsSection() {
           </p>
         </div>
 
-        {/* Live Google Badge & Actions */}
+        {/* Google rating badge & actions */}
         <div className="flex flex-wrap items-center gap-3">
           <a
             href={liveData.placeUrl}
