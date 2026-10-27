@@ -9,7 +9,7 @@ import { STORE_GALLERY, type StorePhoto } from "@/lib/store-photos";
 export function StoreGallery({
   photos = STORE_GALLERY,
   title = "Inside our Rohtak store",
-  intro = "Real photos from our showroom — genuine Yokohama stock, fresh tyres on the racks and a full wall of alloy wheel designs to choose from.",
+  intro = "Real photos from our showroom — a Yokohama Club Network store with genuine Yokohama stock, the Advantec Wheels brand wall and a full display of alloy designs to choose from.",
 }: {
   photos?: StorePhoto[];
   title?: string;

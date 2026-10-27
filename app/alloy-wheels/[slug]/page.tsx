@@ -73,9 +73,9 @@ export default async function AlloyBrandPage({ params }: { params: Promise<{ slu
         <div className="container-shell grid items-start gap-5 py-14 md:grid-cols-[1fr_280px]">
           <BulletCard title={`Why buy ${page.fullName} at Punjab Tyre`} items={page.points} />
           <PhotoCard
-            src={STORE_PHOTOS.alloyDisplay.src}
-            alt={STORE_PHOTOS.alloyDisplay.alt}
-            caption="Alloy wheel display at our Rohtak store"
+            src={page.slug === "advantec" ? STORE_PHOTOS.advantecWall.src : STORE_PHOTOS.alloyDisplay.src}
+            alt={page.slug === "advantec" ? STORE_PHOTOS.advantecWall.alt : STORE_PHOTOS.alloyDisplay.alt}
+            caption={page.slug === "advantec" ? "Advantec brand wall inside our Rohtak store" : "Alloy wheel display at our Rohtak store"}
             logo={page.logo}
             logoAlt={`${page.name} alloy wheels logo`}
             badge={page.authorised ? "Authorised store" : undefined}

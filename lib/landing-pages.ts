@@ -302,7 +302,7 @@ export const brandPages: BrandPage[] = [
     name: "Yokohama",
     logo: "/logos/yokohama.svg",
     authorised: true,
-    photo: STORE_PHOTOS.rangeDisplay,
+    photo: STORE_PHOTOS.showroomYcn,
     vehicles: "car and SUV",
     metaTitle: "Yokohama Tyres Rohtak — Authorised Dealer",
     metaDescription:

@@ -29,6 +29,16 @@ export const STORE_PHOTOS = {
     alt: "Fresh stock of Yokohama tyres on racks at Punjab Tyre, Rohtak",
     caption: "Fresh tyre stock",
   },
+  showroomYcn: {
+    src: "/images/store/showroom-yokohama-club-network.jpg",
+    alt: "Inside Punjab Tyre, Rohtak: Yokohama tyre racks, Advantec wheel kiosk and the Member of Yokohama Club Network sign",
+    caption: "Our showroom — Member of Yokohama Club Network",
+  },
+  advantecWall: {
+    src: "/images/store/advantec-brand-wall.jpg",
+    alt: "Advantec Wheels brand wall with colourful alloy wheel designs inside Punjab Tyre, Rohtak",
+    caption: "Advantec Wheels brand wall",
+  },
   advantecBrandWall: {
     src: "/images/store/advantec-brand-wall-store.jpg",
     alt: "Advantec Wheels welcomes Punjab Tyre, Rohtak to the Advantec Wheels Brand Wall Store family",
@@ -37,9 +47,9 @@ export const STORE_PHOTOS = {
 } satisfies Record<string, StorePhoto>;
 
 export const STORE_GALLERY: StorePhoto[] = [
-  STORE_PHOTOS.tyreWall,
-  STORE_PHOTOS.alloyDisplay,
+  STORE_PHOTOS.showroomYcn,
+  STORE_PHOTOS.advantecWall,
   STORE_PHOTOS.rangeDisplay,
-  STORE_PHOTOS.showroom,
-  STORE_PHOTOS.tyreRacks,
+  STORE_PHOTOS.alloyDisplay,
+  STORE_PHOTOS.tyreWall,
 ];
