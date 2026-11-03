@@ -6,6 +6,7 @@ import { BadgeCheck } from "lucide-react";
 import { STORE_PHOTOS } from "@/lib/store-photos";
 import { alloyBrandPages, carModelPages } from "@/lib/landing-pages";
 import { BUSINESS_ID } from "@/lib/schema";
+import { OnyxGallery } from "@/components/onyx-gallery";
 import { SITE_URL } from "@/lib/business";
 
 export const dynamicParams = false;
@@ -82,6 +83,8 @@ export default async function AlloyBrandPage({ params }: { params: Promise<{ slu
           />
         </div>
       </section>
+
+      {page.slug === "onyx" && <OnyxGallery />}
 
       {page.proof && (
         <section className="bg-white" id="authorised">

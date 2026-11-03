@@ -728,10 +728,15 @@ export const alloyBrandPages: AlloyBrandPage[] = [
     authorised: false,
     metaTitle: "Onyx Alloy Wheels in Rohtak",
     metaDescription:
-      "Buy genuine Onyx Wheels alloys in Rohtak at Punjab Tyre. High-performance custom alloy designs, checked for fitment and fitted with tyres the same day.",
+      "Browse Onyx alloy wheels in Rohtak at Punjab Tyre — OX-01 to OX-13 designs in 13 to 20 inch, Dia-Cut, Black, Titanium and Copper finishes. Fitted with tyres the same day.",
     intro:
-      "Punjab Tyre stocks genuine Onyx Wheels in Rohtak — high-performance custom alloy designs for drivers who want their car to stand out. We check fitment for your car and fit them with your tyres the same day.",
-    points: ["High-performance custom alloy designs", ...COMMON_ALLOY_POINTS],
+      "Punjab Tyre stocks genuine Onyx Wheels in Rohtak — the OX series and more, from 13 inch hatchback alloys up to 20 inch SUV wheels. Browse the collection below by rim size and PCD, then message us the design for price and stock. We check fitment for your car and fit them with your tyres the same day.",
+    points: [
+      "OX-01 to OX-13 designs plus SUV and off-road styles",
+      "13 to 20 inch sizes with 4-hole, 5-hole and 6-hole PCDs",
+      "Finishes like Dia-Cut, Black Dia-Cut, Glossy Black, Matt Black, Titanium and Copper",
+      ...COMMON_ALLOY_POINTS,
+    ],
     faqs: alloyFaqs("Onyx", false),
   },
   {
