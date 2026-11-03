@@ -3,7 +3,9 @@
 /* eslint-disable @next/next/no-img-element -- images are pre-compressed WebP thumbnails; plain <img> keeps Vercel image quota free */
 
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { ChevronLeft, ChevronRight, MessageCircle, X } from "lucide-react";
+import { Car, ChevronLeft, ChevronRight, MessageCircle, X } from "lucide-react";
+import { CAR_PCDS, CAR_PCD_BRANDS, findCarPcd, type CarPcd } from "@/lib/car-pcd";
+import { trackEvent } from "@/lib/analytics";
 import { ONYX_DESIGNS, ONYX_IMG, ONYX_THUMB, type OnyxDesign, type OnyxFinish } from "@/lib/onyx-collection";
 import { buildWhatsAppLink } from "@/lib/utils";
 
@@ -23,13 +25,14 @@ function unique<T>(arr: T[]) {
   return [...new Set(arr)];
 }
 
-function whatsapp(d: OnyxDesign, finish: string, rim: number | null, pcd: string | null) {
+function whatsapp(d: OnyxDesign, finish: string, rim: number | null, pcd: string | null, car: CarPcd | null) {
   const parts = [designName(d)];
   if (finish !== "As shown") parts.push(finish);
   if (rim) parts.push(`${rim} inch`);
   if (pcd) parts.push(`PCD ${pcd}`);
+  const forCar = car ? `my ${car.brand} ${car.model}` : "my car";
   return buildWhatsAppLink(
-    `Hi Punjab Tyre, I like the ${parts.join(", ")} alloy wheels on your website. Please share price and availability for my car.`,
+    `Hi Punjab Tyre, I like the ${parts.join(", ")} alloy wheels on your website. Please share price and availability for ${forCar}.`,
   );
 }
 
@@ -51,10 +54,38 @@ export function OnyxGallery() {
   const [showAll, setShowAll] = useState(false);
   const [chosen, setChosen] = useState<Record<number, string>>({});
   const [open, setOpen] = useState<{ d: number; f: number } | null>(null);
+  const [car, setCar] = useState<CarPcd | null>(null);
+
+  // Preselect from a link such as /alloy-wheels/onyx?car=hyundai-creta
+  useEffect(() => {
+    try {
+      const found = findCarPcd(new URLSearchParams(window.location.search).get("car"));
+      if (found) {
+        setCar(found);
+        setPcd(found.pcd);
+      }
+    } catch {
+      /* ignore */
+    }
+  }, []);
+
+  const pickCar = (slug: string) => {
+    const found = findCarPcd(slug);
+    setCar(found);
+    setPcd(found ? found.pcd : null);
+    setRim(null);
+    setShowAll(false);
+    if (found) trackEvent("alloy_car_select", { car: found.slug, pcd: found.pcd, brand_page: "onyx" });
+  };
 
   const rims = useMemo(
-    () => unique(ONYX_DESIGNS.flatMap((d) => d.finishes.flatMap((f) => f.fit.map((x) => x[0])))).sort((a, b) => a - b),
-    [],
+    () =>
+      unique(
+        ONYX_DESIGNS.flatMap((d) =>
+          d.finishes.flatMap((f) => f.fit.filter((x) => car === null || x[2] === car.pcd).map((x) => x[0])),
+        ),
+      ).sort((a, b) => a - b),
+    [car],
   );
   const pcds = useMemo(
     () =>
@@ -114,15 +145,56 @@ export function OnyxGallery() {
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#E53935]">Onyx collection</p>
           <h2 className="mt-2 text-3xl font-black text-black md:text-4xl">Browse Onyx alloy designs</h2>
           <p className="mt-3 text-sm leading-relaxed text-black/55">
-            Pick your rim size and bolt pattern (PCD) to see the Onyx designs that fit. Tap a photo for all sizes, or send
-            us the design on WhatsApp for price and stock. Not sure of your PCD? Tell us your car and we&apos;ll check.
+            Select your car to see only the Onyx designs that bolt on to it, then pick a rim size. Tap a photo for all
+            sizes, or send us the design on WhatsApp for price and stock.
           </p>
         </div>
 
-        <div className="mt-7 space-y-3">
+        <div className="mt-7 max-w-xl rounded-2xl border border-black/[0.08] bg-[#f7f7f7] p-4">
+          <label htmlFor="onyx-car" className="flex items-center gap-2 text-sm font-bold text-black">
+            <Car className="h-4 w-4 text-[#E53935]" />
+            Select your car
+          </label>
+          <select
+            id="onyx-car"
+            value={car?.slug ?? ""}
+            onChange={(e) => pickCar(e.target.value)}
+            className="mt-2 w-full rounded-xl border border-black/15 bg-white px-3 py-2.5 text-sm text-black outline-none focus:border-black"
+          >
+            <option value="">All cars — show every design</option>
+            {CAR_PCD_BRANDS.map((b) => (
+              <optgroup key={b} label={b}>
+                {CAR_PCDS.filter((x) => x.brand === b).map((x) => (
+                  <option key={x.slug} value={x.slug}>
+                    {x.model}
+                  </option>
+                ))}
+              </optgroup>
+            ))}
+          </select>
+          <p className="mt-2 text-xs leading-relaxed text-black/55">
+            {car ? (
+              <>
+                Your {car.model} uses a <strong className="text-black">{car.pcd}</strong> stud pattern (PCD). We confirm
+                centre bore and offset for your exact variant before fitting.
+              </>
+            ) : (
+              <>Car not listed? Use the PCD filter below or WhatsApp us your car model and we&apos;ll check for you.</>
+            )}
+          </p>
+        </div>
+
+        <div className="mt-5 space-y-3">
           <div className="flex items-center gap-2 overflow-x-auto pb-1" role="group" aria-label="Filter by rim size">
             <span className="w-12 shrink-0 text-[11px] font-bold uppercase tracking-wide text-black/40">Size</span>
-            <button type="button" className={chip(rim === null)} onClick={() => { setRim(null); setPcd(null); }}>
+            <button
+              type="button"
+              className={chip(rim === null)}
+              onClick={() => {
+                setRim(null);
+                if (!car) setPcd(null);
+              }}
+            >
               All
             </button>
             {rims.map((r) => (
@@ -132,7 +204,7 @@ export function OnyxGallery() {
                 className={chip(rim === r)}
                 onClick={() => {
                   setRim(r);
-                  setPcd(null);
+                  if (!car) setPcd(null);
                 }}
               >
                 {r}″
@@ -141,21 +213,53 @@ export function OnyxGallery() {
           </div>
           <div className="flex items-center gap-2 overflow-x-auto pb-1" role="group" aria-label="Filter by PCD">
             <span className="w-12 shrink-0 text-[11px] font-bold uppercase tracking-wide text-black/40">PCD</span>
-            <button type="button" className={chip(pcd === null)} onClick={() => setPcd(null)}>
+            <button
+              type="button"
+              className={chip(pcd === null)}
+              onClick={() => {
+                setPcd(null);
+                setCar(null);
+              }}
+            >
               All
             </button>
             {pcds.map((p) => (
-              <button key={p} type="button" className={chip(pcd === p)} onClick={() => setPcd(p)}>
+              <button
+                key={p}
+                type="button"
+                className={chip(pcd === p)}
+                onClick={() => {
+                  setPcd(p);
+                  if (car && car.pcd !== p) setCar(null);
+                }}
+              >
                 {p}
               </button>
             ))}
           </div>
           <p className="text-xs text-black/45">
             {visible.length} designs · {totalPhotos} finishes
+            {car ? ` for ${car.model}` : ""}
             {rim ? ` in ${rim}″` : ""}
-            {pcd ? ` · PCD ${pcd}` : ""}
+            {pcd && !car ? ` · PCD ${pcd}` : ""}
           </p>
         </div>
+
+        {visible.length === 0 && (
+          <div className="mt-6 rounded-2xl border border-dashed border-black/15 p-6 text-sm text-black/60">
+            No Onyx photos in this size for {car ? `the ${car.model}` : "this PCD"} yet — new stock arrives often.{" "}
+            <a
+              href={buildWhatsAppLink(
+                `Hi Punjab Tyre, do you have Onyx alloy wheels${rim ? ` in ${rim} inch` : ""} for ${car ? `my ${car.brand} ${car.model}` : `PCD ${pcd}`}?`,
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-bold text-[#128C7E] underline"
+            >
+              Ask us on WhatsApp
+            </a>
+          </div>
+        )}
 
         <div className="mt-6 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
           {shown.map(({ d, i, finishes }) => {
@@ -210,7 +314,7 @@ export function OnyxGallery() {
                   <p className="mt-2 text-[11px] text-black/50">Sizes: {sizes.map((s) => `${s}″`).join(" · ")}</p>
                   <div className="mt-auto pt-3">
                     <a
-                      href={whatsapp(d, f.name, rim, pcd)}
+                      href={whatsapp(d, f.name, rim, pcd, car)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex w-full items-center justify-center gap-1.5 rounded-full bg-[#25D366] px-3 py-2 text-xs font-bold text-white hover:bg-[#1fb857]"
@@ -297,7 +401,7 @@ export function OnyxGallery() {
                 ))}
               </ul>
               <a
-                href={whatsapp(lbDesign, lb.name, rim, pcd)}
+                href={whatsapp(lbDesign, lb.name, rim, pcd, car)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-5 py-3 text-sm font-bold text-white hover:bg-[#1fb857]"

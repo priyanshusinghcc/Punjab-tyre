@@ -5,6 +5,7 @@ import { BulletCard, LandingShell, PhotoCard } from "@/components/landing/landin
 import { STORE_PHOTOS } from "@/lib/store-photos";
 import { alloyBrandPages, alloyOverview, carModelPages } from "@/lib/landing-pages";
 import { serviceSchema } from "@/lib/schema";
+import { AlloyCarFinder } from "@/components/alloy-car-finder";
 
 export const metadata: Metadata = {
   title: alloyOverview.metaTitle,
@@ -28,7 +29,8 @@ export default function AlloyWheelsIndex() {
     >
       <section className="bg-[#f7f7f7]">
         <div className="container-shell py-14">
-          <h2 className="text-2xl font-black text-black md:text-3xl">Alloy wheel brands</h2>
+          <AlloyCarFinder />
+          <h2 className="mt-12 text-2xl font-black text-black md:text-3xl">Alloy wheel brands</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {alloyBrandPages.map((b) => (
               <Link

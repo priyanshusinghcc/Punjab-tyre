@@ -28,6 +28,9 @@ export function VehicleLeadPopup() {
       // ignore
     }
 
+    // Alloy pages have their own "Select your car" picker; a tyre popup there interrupts browsing.
+    if (window.location.pathname.startsWith("/alloy-wheels")) return;
+
     const timer = setTimeout(() => {
       setIsOpen(true);
     }, 3500);
