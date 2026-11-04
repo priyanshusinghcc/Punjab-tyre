@@ -40,6 +40,20 @@ export async function POST(request: Request) {
     ? (body.type as string)
     : "callback";
 
+  // The call-back form requires every field (the shop needs a name and a reason to call).
+  if (type === "callback") {
+    const name = text(body.name, 60);
+    if (!/[a-zA-Z\u0900-\u097F]{2,}/.test(name) || /\d/.test(name)) {
+      return NextResponse.json({ ok: false, error: "name_required" }, { status: 400 });
+    }
+    if (text(body.car, 80).length < 2) {
+      return NextResponse.json({ ok: false, error: "car_required" }, { status: 400 });
+    }
+    if (text(body.message, 500).length < 10) {
+      return NextResponse.json({ ok: false, error: "message_required" }, { status: 400 });
+    }
+  }
+
   const lead = {
     secret: process.env.LEADS_WEBHOOK_SECRET ?? "",
     type,

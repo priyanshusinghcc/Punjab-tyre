@@ -19,12 +19,22 @@ export function CallbackForm({ defaultCar = "", dark = false }: { defaultCar?: s
   const [website, setWebsite] = React.useState(""); // honeypot
   const [status, setStatus] = React.useState<"idle" | "sending" | "done" | "error">("idle");
   const [error, setError] = React.useState("");
+  const [invalid, setInvalid] = React.useState<Record<string, boolean>>({});
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const digits = phone.replace(/\D/g, "");
-    if (!/^[6-9]\d{9}$/.test(digits)) {
-      setError("Please enter a valid 10-digit mobile number");
+    const digits = phone.replace(/\D/g, "").replace(/^(?:91|0)(?=\d{10}$)/, "");
+    const checks: [string, boolean, string][] = [
+      ["name", /[a-zA-Z\u0900-\u097F]{2,}/.test(name) && !/\d/.test(name), "Please enter your name"],
+      ["phone", /^[6-9]\d{9}$/.test(digits), "Please enter a valid 10-digit mobile number"],
+      ["car", car.trim().length >= 2, "Please enter your car or bike model"],
+      ["message", message.trim().length >= 10, "Please tell us what you need (at least a few words)"],
+    ];
+    const bad = Object.fromEntries(checks.filter(([, ok]) => !ok).map(([k]) => [k, true]));
+    setInvalid(bad);
+    const firstBad = checks.find(([, ok]) => !ok);
+    if (firstBad) {
+      setError(firstBad[2]);
       return;
     }
     setError("");
@@ -51,6 +61,8 @@ export function CallbackForm({ defaultCar = "", dark = false }: { defaultCar?: s
     ? "h-11 w-full rounded-xl border border-white/15 bg-white/[0.06] px-4 text-sm text-white placeholder:text-white/40 outline-none focus:border-[#E53935]"
     : "h-11 w-full rounded-xl border border-black/10 bg-white px-4 text-sm text-black placeholder:text-black/35 outline-none focus:border-[#E53935] focus:ring-2 focus:ring-[#E53935]/10";
   const muted = dark ? "text-white/55" : "text-black/50";
+  const cls = (key: string) => (invalid[key] ? `${field} !border-[#E53935]` : field);
+  const clear = (key: string) => invalid[key] && setInvalid((v) => ({ ...v, [key]: false }));
 
   if (status === "done") {
     return (
@@ -67,6 +79,7 @@ export function CallbackForm({ defaultCar = "", dark = false }: { defaultCar?: s
   return (
     <form
       onSubmit={onSubmit}
+      noValidate
       data-track-location="callback_form"
       className={`space-y-3 rounded-3xl p-6 ${dark ? "bg-white/[0.05]" : "border border-black/[0.07] bg-white"}`}
     >
@@ -75,25 +88,61 @@ export function CallbackForm({ defaultCar = "", dark = false }: { defaultCar?: s
         Request a call back
       </div>
       <div className="grid gap-3 sm:grid-cols-2">
-        <input className={field} value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name" autoComplete="name" maxLength={60} />
         <input
-          className={field}
+          className={cls("name")}
+          value={name}
+          onChange={(e) => {
+            setName(e.target.value);
+            clear("name");
+          }}
+          placeholder="Your name *"
+          aria-label="Your name"
+          aria-invalid={!!invalid.name}
+          autoComplete="name"
+          maxLength={60}
+          required
+        />
+        <input
+          className={cls("phone")}
           value={phone}
-          onChange={(e) => setPhone(e.target.value.replace(/[^\d+ ]/g, "").slice(0, 14))}
+          onChange={(e) => {
+            setPhone(e.target.value.replace(/[^\d+ ]/g, "").slice(0, 14));
+            clear("phone");
+          }}
           placeholder="Mobile number *"
+          aria-label="Mobile number"
+          aria-invalid={!!invalid.phone}
           type="tel"
           inputMode="numeric"
           autoComplete="tel-national"
           required
         />
       </div>
-      <input className={field} value={car} onChange={(e) => setCar(e.target.value)} placeholder="Car / bike model (e.g. Creta SX)" maxLength={80} />
+      <input
+        className={cls("car")}
+        value={car}
+        onChange={(e) => {
+          setCar(e.target.value);
+          clear("car");
+        }}
+        placeholder="Car / bike model * (e.g. Creta SX)"
+        aria-label="Car or bike model"
+        aria-invalid={!!invalid.car}
+        maxLength={80}
+        required
+      />
       <textarea
-        className={`${field} h-20 resize-none py-3`}
+        className={`${cls("message")} h-20 resize-none py-3`}
         value={message}
-        onChange={(e) => setMessage(e.target.value)}
-        placeholder="What do you need? (tyres, alloys, alignment…)"
+        onChange={(e) => {
+          setMessage(e.target.value);
+          clear("message");
+        }}
+        placeholder="What do you need? * (e.g. 4 new tyres, 17-inch alloys, alignment)"
+        aria-label="What do you need"
+        aria-invalid={!!invalid.message}
         maxLength={500}
+        required
       />
       {/* Honeypot — hidden from people, bots fill it */}
       <input
