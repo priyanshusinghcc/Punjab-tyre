@@ -34,9 +34,7 @@ export default function PrivacyPage() {
 
       <h2 className={h2}>How we use it</h2>
       <p className={p}>
-        To reply to your enquiry — by call or WhatsApp — with tyre options, prices and fitment details. If you tick
-        &quot;send me tyre offers&quot;, we may also send you occasional offers on WhatsApp; you can stop these at any
-        time by replying STOP or asking us.
+        To reply to your enquiry — by call or WhatsApp — with tyre options, prices and fitment details.
       </p>
       <p className={p}>We do not sell or share your details with anyone for their own marketing.</p>
 

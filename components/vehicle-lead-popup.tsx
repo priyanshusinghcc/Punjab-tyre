@@ -18,7 +18,6 @@ export function VehicleLeadPopup() {
   const [phone, setPhone] = useState("");
   const [error, setError] = useState("");
   const [submitted, setSubmitted] = useState(false);
-  const [marketingOptIn, setMarketingOptIn] = useState(false);
 
   // Automatically trigger popup within 3-4 seconds whenever someone opens/reloads the website
   useEffect(() => {
@@ -126,7 +125,7 @@ export function VehicleLeadPopup() {
       phone,
       car: `${brand} ${model}`,
       tyre_size: oemFitment?.size,
-      marketing_opt_in: marketingOptIn,
+      marketing_opt_in: false,
     });
 
     // Open WhatsApp in a new tab
@@ -260,17 +259,6 @@ export function VehicleLeadPopup() {
                   {error}
                 </p>
               )}
-
-              {/* Marketing opt-in (optional, unticked by default) */}
-              <label className="flex cursor-pointer items-start gap-2 pt-1 text-[11px] leading-snug text-black/55">
-                <input
-                  type="checkbox"
-                  checked={marketingOptIn}
-                  onChange={(e) => setMarketingOptIn(e.target.checked)}
-                  className="mt-0.5 h-3.5 w-3.5 accent-[#E53935]"
-                />
-                Also send me tyre offers on WhatsApp (optional)
-              </label>
 
               {/* Submit Button */}
               <button

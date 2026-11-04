@@ -15,7 +15,6 @@ export function CallbackForm({ defaultCar = "", dark = false }: { defaultCar?: s
   const [phone, setPhone] = React.useState("");
   const [car, setCar] = React.useState(defaultCar);
   const [message, setMessage] = React.useState("");
-  const [marketingOptIn, setMarketingOptIn] = React.useState(false);
   const [website, setWebsite] = React.useState(""); // honeypot
   const [status, setStatus] = React.useState<"idle" | "sending" | "done" | "error">("idle");
   const [error, setError] = React.useState("");
@@ -45,7 +44,7 @@ export function CallbackForm({ defaultCar = "", dark = false }: { defaultCar?: s
       phone: digits,
       car,
       message,
-      marketing_opt_in: marketingOptIn,
+      marketing_opt_in: false,
       website,
     });
     if (result.ok) {
@@ -155,15 +154,6 @@ export function CallbackForm({ defaultCar = "", dark = false }: { defaultCar?: s
         aria-hidden="true"
         name="website"
       />
-      <label className={`flex cursor-pointer items-start gap-2 text-xs ${muted}`}>
-        <input
-          type="checkbox"
-          checked={marketingOptIn}
-          onChange={(e) => setMarketingOptIn(e.target.checked)}
-          className="mt-0.5 h-3.5 w-3.5 accent-[#E53935]"
-        />
-        Also send me tyre offers on WhatsApp (optional)
-      </label>
       {error && <p className="text-xs font-semibold text-[#E53935]">{error}</p>}
       <button
         type="submit"
