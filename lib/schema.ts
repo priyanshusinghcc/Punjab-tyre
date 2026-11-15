@@ -13,7 +13,7 @@ export function localBusinessSchema() {
     name: BUSINESS.name,
     alternateName: BUSINESS.alternateNames,
     description:
-      "Authorised Yokohama tyre dealer (Yokohama Club Network) and authorised Advantec alloy wheel store in Rohtak, Haryana, serving drivers since 1949. Car and bike tyres from Yokohama, CEAT, Apollo, Goodyear and Michelin; alloy wheels from Advantec, Neo, Onyx, Incubus and Uno Minda; car accessories; and same-day fitment with wheel alignment, balancing and nitrogen inflation.",
+      "Authorised Yokohama tyre dealer (Yokohama Club Network) and authorised Advantec alloy wheel store in Rohtak, Haryana, serving drivers since 1949. Car and bike tyres from Yokohama, CEAT, MRF, Apollo and Michelin; alloy wheels from Advantec, Neo, Onyx, Incubus and Uno Minda; car accessories; and same-day fitment with wheel alignment, balancing and nitrogen inflation.",
     url: SITE_URL,
     logo: {
       "@type": "ImageObject",

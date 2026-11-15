@@ -5,9 +5,9 @@ import { LandingShell } from "@/components/landing/landing-shell";
 import { brandPages } from "@/lib/landing-pages";
 
 export const metadata: Metadata = {
-  title: "Tyre Brands in Rohtak — Yokohama, CEAT, Apollo, Goodyear, Michelin",
+  title: "Tyre Brands in Rohtak — Yokohama, CEAT, MRF, Apollo, Michelin",
   description:
-    "Genuine car, SUV and bike tyres in Rohtak from Yokohama (authorised dealer), CEAT, Apollo, Goodyear, Michelin, TVS and BKT at Punjab Tyre.",
+    "Genuine car, SUV and bike tyres in Rohtak from Yokohama (authorised dealer), CEAT, MRF, Apollo, Michelin and TVS at Punjab Tyre.",
   alternates: { canonical: "/brands" },
 };
 
@@ -17,7 +17,7 @@ export default function BrandsIndex() {
       crumbs={[{ name: "Tyre brands", path: "/brands" }]}
       eyebrow="Tyre brands"
       title="Genuine tyre brands in Rohtak"
-      intro="Authorised Yokohama dealer, plus genuine CEAT, Apollo, Goodyear, Michelin, TVS and BKT tyres — all with manufacturer warranty and same-day fitment."
+      intro="Authorised Yokohama dealer, plus genuine CEAT, MRF, Apollo, Michelin and TVS tyres — all with manufacturer warranty and same-day fitment."
       whatsappMessage="Hi Punjab Tyre, please share tyre options and prices for my vehicle."
     >
       <section className="bg-[#f7f7f7]">

@@ -924,7 +924,7 @@ export const carTyreBrands: BrandItem[] = [
   { name: "CEAT", logo: "/logos/ceat.svg" },
   { name: "Yokohama", logo: "/logos/yokohama.svg" },
   { name: "Apollo", logo: "/logos/apollo.png" },
-  { name: "Goodyear", logo: "/logos/goodyear.svg" },
+  { name: "MRF", logo: "/logos/mrf.svg" },
   { name: "Michelin", logo: "/logos/michelin.svg" },
 ];
 
@@ -933,7 +933,7 @@ export const bikeTyreBrands: BrandItem[] = [
   { name: "Apollo", logo: "/logos/apollo.png" },
   { name: "Michelin", logo: "/logos/michelin.svg" },
   { name: "TVS", logo: "/logos/tvs.png" },
-  { name: "BKT", logo: "/logos/bkt.png" },
+  { name: "MRF", logo: "/logos/mrf.svg" },
 ];
 
 export const services = [
@@ -1083,7 +1083,7 @@ export const faqs = [
   {
     question: "Is Punjab Tyre an authorised Yokohama and Advantec dealer?",
     answer:
-      "Yes. Punjab Tyre is an authorised Yokohama dealer (Yokohama Club Network store) and an authorised Advantec alloy wheel store in Rohtak. We also stock genuine CEAT, Apollo, Goodyear and Michelin car tyres, CEAT, Apollo, Michelin, TVS and BKT bike tyres, and Neo, Onyx, Incubus and Uno Minda alloy wheels.",
+      "Yes. Punjab Tyre is an authorised Yokohama dealer (Yokohama Club Network store) and an authorised Advantec alloy wheel store in Rohtak. We also stock genuine CEAT, MRF, Apollo and Michelin car tyres, CEAT, Apollo, Michelin, MRF and TVS bike tyres, and Neo, Onyx, Incubus and Uno Minda alloy wheels.",
   },
   {
     question: "Can I get new tyres fitted the same day?",

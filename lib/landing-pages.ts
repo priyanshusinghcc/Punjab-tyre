@@ -114,9 +114,9 @@ export const servicePages: ServicePage[] = [
     h1: "Tyre Changing & Fitting in Rohtak",
     metaTitle: "Same-Day Tyre Fitting in Rohtak",
     metaDescription:
-      "Same-day tyre changing and fitting in Rohtak for cars, SUVs and bikes. Genuine Yokohama, CEAT, Michelin, Apollo & Goodyear tyres. Punjab Tyre, since 1949.",
+      "Same-day tyre changing and fitting in Rohtak for cars, SUVs and bikes. Genuine Yokohama, CEAT, MRF, Michelin & Apollo tyres. Punjab Tyre, since 1949.",
     intro:
-      "Buy and fit new tyres the same day at our Rohtak store. We stock genuine car, SUV and bike tyres from Yokohama, CEAT, Apollo, Goodyear and Michelin, and fit them with care so rims, valves and tyre beads aren't damaged.",
+      "Buy and fit new tyres the same day at our Rohtak store. We stock genuine car, SUV and bike tyres from Yokohama, CEAT, MRF, Apollo and Michelin, and fit them with care so rims, valves and tyre beads aren't damaged.",
     signsTitle: "When it's time for new tyres",
     signs: [
       "Tread depth is near the wear indicator bars in the grooves",
@@ -362,22 +362,22 @@ export const brandPages: BrandPage[] = [
     faqs: standardBrandFaqs("Apollo", "car, SUV and bike"),
   },
   {
-    slug: "goodyear",
-    name: "Goodyear",
-    logo: "/logos/goodyear.svg",
+    slug: "mrf",
+    name: "MRF",
+    logo: "/logos/mrf.svg",
     authorised: false,
-    vehicles: "car and SUV",
-    metaTitle: "Goodyear Tyres in Rohtak",
+    vehicles: "car, SUV and bike",
+    metaTitle: "MRF Tyres in Rohtak",
     metaDescription:
-      "Genuine Goodyear car and SUV tyres in Rohtak at Punjab Tyre. Manufacturer warranty, same-day fitment, alignment and balancing included.",
+      "Genuine MRF car, SUV and bike tyres in Rohtak at Punjab Tyre. Manufacturer warranty, same-day fitment, alignment and balancing.",
     intro:
-      "Buy genuine Goodyear tyres for cars and SUVs at Punjab Tyre, Rohtak, with manufacturer warranty and same-day fitment.",
+      "Buy genuine MRF tyres for cars, SUVs and bikes at Punjab Tyre, Rohtak, with manufacturer warranty and same-day fitment.",
     points: [
-      "Car and SUV tyres",
+      "Car, SUV and two-wheeler tyres",
       "Genuine stock with manufacturer warranty",
-      "Same-day fitment with alignment and balancing included",
+      "Same-day fitment with alignment and balancing",
     ],
-    faqs: standardBrandFaqs("Goodyear", "car and SUV"),
+    faqs: standardBrandFaqs("MRF", "car, SUV and bike"),
   },
   {
     slug: "michelin",
@@ -414,22 +414,6 @@ export const brandPages: BrandPage[] = [
       "Fitting and puncture repair at our Rohtak store",
     ],
     faqs: standardBrandFaqs("TVS", "bike and scooter"),
-  },
-  {
-    slug: "bkt",
-    name: "BKT",
-    logo: "/logos/bkt.png",
-    authorised: false,
-    vehicles: "bike",
-    metaTitle: "BKT Tyres in Rohtak",
-    metaDescription:
-      "Genuine BKT tyres in Rohtak at Punjab Tyre, with manufacturer warranty and fitting at our store.",
-    intro: "Punjab Tyre stocks genuine BKT tyres in Rohtak with manufacturer warranty and fitting at our store.",
-    points: [
-      "Genuine stock with manufacturer warranty",
-      "Fitting at our Rohtak store",
-    ],
-    faqs: standardBrandFaqs("BKT", "bike"),
   },
 ];
 
@@ -611,7 +595,7 @@ export function carModelFaqs(page: CarModelPage): FaqItem[] {
     },
     {
       question: `What is the price of ${page.shortName} tyres in Rohtak?`,
-      answer: `It depends on the brand and pattern you choose. Send your ${page.shortName} variant on WhatsApp to +91 98960 53958 and Punjab Tyre will reply with current prices for every brand in stock, including Yokohama, CEAT, Apollo, Goodyear and Michelin.`,
+      answer: `It depends on the brand and pattern you choose. Send your ${page.shortName} variant on WhatsApp to +91 98960 53958 and Punjab Tyre will reply with current prices for every brand in stock, including Yokohama, CEAT, MRF, Apollo and Michelin.`,
     },
     {
       question: `Which tyre brand is best for the ${page.shortName}?`,

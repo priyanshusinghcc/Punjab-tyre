@@ -48,8 +48,8 @@ export const BUSINESS = {
   googleRating: 4.8,
   googleReviewCount: 782,
   authorisedBrands: ["Yokohama", "Advantec"],
-  carTyreBrands: ["Yokohama", "CEAT", "Apollo", "Goodyear", "Michelin"],
-  bikeTyreBrands: ["CEAT", "Apollo", "Michelin", "TVS", "BKT"],
+  carTyreBrands: ["Yokohama", "CEAT", "MRF", "Apollo", "Michelin"],
+  bikeTyreBrands: ["CEAT", "MRF", "Apollo", "Michelin", "TVS"],
   alloyBrands: ["Advantec", "Neo", "Onyx Wheels", "Incubus Alloys", "Uno Minda"],
 };
 

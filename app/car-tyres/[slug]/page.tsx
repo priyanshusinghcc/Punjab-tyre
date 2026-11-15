@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     : `${page.displayName} Tyre Size & Price in Rohtak`;
   const description = page.isEv
     ? `${page.brand} ${page.shortName} tyres in Rohtak: Yokohama Geolandar X-CV in ${sizes}, in stock. EV-ready, fitted the same day at Punjab Tyre (Yokohama Club Network).`
-    : `${page.displayName} tyre size by variant: ${sizes}. Buy Yokohama, CEAT, Michelin, Apollo & Goodyear tyres for your ${page.shortName} in Rohtak with same-day fitment.`;
+    : `${page.displayName} tyre size by variant: ${sizes}. Buy Yokohama, CEAT, MRF, Michelin & Apollo tyres for your ${page.shortName} in Rohtak with same-day fitment.`;
   return {
     title,
     description,
@@ -41,7 +41,7 @@ export default async function CarTyrePage({ params }: { params: Promise<{ slug: 
   const intro = page.isEv
     ? `The Yokohama Geolandar X-CV for the ${page.brand} ${page.shortName} is in stock at Punjab Tyre, Rohtak, in the company-fitment size ${sizeList}. As an electric SUV it needs tyres with the right load rating, low rolling resistance and low noise — fitted the same day with alignment and balancing.`
     : page.sizes.length === 1
-      ? `The ${page.displayName} comes from the factory on ${page.sizes[0].size} tyres. Get genuine tyres in this size from Yokohama, CEAT, Apollo, Goodyear and Michelin at Punjab Tyre, Rohtak — fitted the same day.`
+      ? `The ${page.displayName} comes from the factory on ${page.sizes[0].size} tyres. Get genuine tyres in this size from Yokohama, CEAT, MRF, Apollo and Michelin at Punjab Tyre, Rohtak — fitted the same day.`
       : `The ${page.displayName} uses ${sizeList} tyres, depending on the variant. Find your variant below, then get genuine tyres in that size at Punjab Tyre, Rohtak — fitted the same day.`;
 
   const sameBrand = carModelPages.filter((c) => c.brand === page.brand && c.slug !== page.slug);
@@ -142,7 +142,7 @@ export default async function CarTyrePage({ params }: { params: Promise<{ slug: 
             </p>
             <ul className="mt-5 flex flex-wrap gap-2">
               {brandPages
-                .filter((b) => !["tvs", "bkt"].includes(b.slug))
+                .filter((b) => !["tvs"].includes(b.slug))
                 .map((b) => (
                   <li key={b.slug}>
                     <Link

@@ -12,7 +12,10 @@ const nextConfig: NextConfig = {
       // Old "catalogue coming soon" page → tyre size finder
       { source: "/tyres", destination: "/car-tyres", permanent: true },
       // Alloy wheels moved from /services to their own section
-      { source: "/services/alloy-wheels", destination: "/alloy-wheels", permanent: true }
+      { source: "/services/alloy-wheels", destination: "/alloy-wheels", permanent: true },
+      // Brands no longer stocked
+      { source: "/brands/goodyear", destination: "/brands", permanent: true },
+      { source: "/brands/bkt", destination: "/brands", permanent: true }
     ];
   }
 };

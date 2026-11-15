@@ -19,7 +19,7 @@ import { BUSINESS, SITE_URL } from "@/lib/business";
 const DEFAULT_TITLE =
   "Punjab Tyre Rohtak | Tyres, Alloy Wheels & Same-Day Fitment Since 1949";
 const DEFAULT_DESCRIPTION =
-  "Buy Yokohama, CEAT, Michelin, Apollo & Goodyear tyres in Rohtak. Authorised Yokohama dealer. Same-day fitment, wheel alignment & balancing. Trusted since 1949 — get a WhatsApp quote.";
+  "Buy Yokohama, CEAT, MRF, Michelin & Apollo tyres in Rohtak. Authorised Yokohama dealer. Same-day fitment, wheel alignment & balancing. Trusted since 1949 — get a WhatsApp quote.";
 
 const verification: Metadata["verification"] = {};
 if (process.env.GOOGLE_SITE_VERIFICATION) {

@@ -8,7 +8,7 @@ import { carModelPages } from "@/lib/landing-pages";
 export const metadata: Metadata = {
   title: "Car Tyres in Rohtak — Find Tyres by Car or Size",
   description:
-    "Find car tyres by car model or tyre size at Punjab Tyre, Rohtak — Yokohama (authorised dealer), CEAT, Apollo, Goodyear and Michelin. Price on WhatsApp, fitted the same day.",
+    "Find car tyres by car model or tyre size at Punjab Tyre, Rohtak — Yokohama (authorised dealer), CEAT, MRF, Apollo and Michelin. Price on WhatsApp, fitted the same day.",
   alternates: { canonical: "/car-tyres" },
 };
 
@@ -16,7 +16,7 @@ const BRANDS: BrandOption[] = [
   { name: "Yokohama", logo: "/logos/yokohama.svg", authorised: true },
   { name: "CEAT", logo: "/logos/ceat.svg" },
   { name: "Apollo", logo: "/logos/apollo.png" },
-  { name: "Goodyear", logo: "/logos/goodyear.svg" },
+  { name: "MRF", logo: "/logos/mrf.svg" },
   { name: "Michelin", logo: "/logos/michelin.svg" },
 ];
 
@@ -57,7 +57,7 @@ const FAQS = [
   {
     question: "Are your tyres genuine and new?",
     answer:
-      "Yes. We are an authorised Yokohama (Yokohama Club Network) dealer and stock genuine tyres from CEAT, Apollo, Goodyear and Michelin, with the manufacturer's warranty.",
+      "Yes. We are an authorised Yokohama (Yokohama Club Network) dealer and stock genuine tyres from CEAT, MRF, Apollo and Michelin, with the manufacturer's warranty.",
   },
   {
     question: "Is fitting done the same day?",
@@ -85,7 +85,7 @@ export default function CarTyresPage() {
       <CategoryHero
         eyebrow="Shop tyres"
         lines={["All top brands.", "Fitted the same day."]}
-        sub="Authorised Yokohama dealer · CEAT, Apollo, Goodyear & Michelin · Rohtak"
+        sub="Authorised Yokohama dealer · CEAT, MRF, Apollo & Michelin · Rohtak"
       />
       <section className="container-shell pt-5">
         <TyreSizeBrowser sizes={sizes} cars={cars} brands={BRANDS} />

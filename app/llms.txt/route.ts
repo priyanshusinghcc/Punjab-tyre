@@ -8,7 +8,7 @@ export function GET() {
   const lines = [
     `# ${BUSINESS.name}`,
     "",
-    `> Tyre and alloy wheel store in Rohtak, Haryana, India, serving drivers since ${BUSINESS.foundingYear}. Authorised Yokohama dealer (Yokohama Club Network) and authorised Advantec alloy wheel store. Sells genuine car, SUV and bike tyres from Yokohama, CEAT, Apollo, Goodyear, Michelin, TVS and BKT; alloy wheels from Advantec, Neo, Onyx, Incubus and Uno Minda; and car accessories, with same-day fitment. Rated ${BUSINESS.googleRating} on Google from ${BUSINESS.googleReviewCount}+ reviews.`,
+    `> Tyre and alloy wheel store in Rohtak, Haryana, India, serving drivers since ${BUSINESS.foundingYear}. Authorised Yokohama dealer (Yokohama Club Network) and authorised Advantec alloy wheel store. Sells genuine car, SUV and bike tyres from Yokohama, CEAT, MRF, Apollo, Michelin, MRF and TVS; alloy wheels from Advantec, Neo, Onyx, Incubus and Uno Minda; and car accessories, with same-day fitment. Rated ${BUSINESS.googleRating} on Google from ${BUSINESS.googleReviewCount}+ reviews.`,
     "",
     "## Contact",
     `- Address: ${FULL_ADDRESS}, India`,
