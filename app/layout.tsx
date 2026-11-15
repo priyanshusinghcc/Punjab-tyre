@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 // @ts-ignore
+import "@fontsource-variable/outfit";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
