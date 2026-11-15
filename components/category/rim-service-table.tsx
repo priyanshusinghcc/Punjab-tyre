@@ -33,7 +33,7 @@ export function RimServiceTable() {
               target="_blank"
               rel="noreferrer"
               onClick={() => trackEvent("service_price_request", { service: c, rim: r })}
-              className="text-center text-xs font-semibold text-[#b5651d] underline-offset-2 hover:underline sm:text-sm"
+              className="text-center text-xs font-semibold text-[#1d4ed8] underline-offset-2 hover:underline sm:text-sm"
             >
               Ask price
             </a>
@@ -44,7 +44,7 @@ export function RimServiceTable() {
             )}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex w-[92px] items-center justify-center gap-1 rounded-lg bg-[#e89b38] py-2 text-xs font-bold text-white hover:bg-[#cf8526] sm:w-[110px] sm:text-sm"
+            className="inline-flex w-[92px] items-center justify-center gap-1 rounded-lg bg-[#2563eb] py-2 text-xs font-bold text-white hover:bg-[#1d4ed8] sm:w-[110px] sm:text-sm"
           >
             <MessageCircle className="h-3.5 w-3.5" />
             Book

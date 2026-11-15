@@ -102,7 +102,7 @@ export default function WheelServicePage() {
       <JsonLd data={breadcrumbSchema([{ name: "Wheel service", path: "/services" }])} />
       <JsonLd data={faqSchema(FAQS)} />
       <CategoryHero
-        tone="amber"
+        tone="blue"
         eyebrow="Wheel service"
         lines={["Alignment, balancing", "& everything wheels."]}
         sub="Tyre fitting, nitrogen and puncture repair too — done the same day in Rohtak."
@@ -116,15 +116,15 @@ export default function WheelServicePage() {
           WhatsApp.
         </p>
 
-        <div className="mt-5 rounded-3xl border-2 border-[#f3cf9d] bg-[#fdf6ec] p-4 sm:p-6">
-          <h3 className="text-lg font-bold text-[#a8561f]">Alignment + Balancing combo</h3>
+        <div className="mt-5 rounded-3xl border-2 border-[#bfd3fb] bg-[#eef4ff] p-4 sm:p-6">
+          <h3 className="text-lg font-bold text-[#1e3a8a]">Alignment + Balancing combo</h3>
           <p className="mt-1 text-sm text-black/65">The service most cars need together — done in one visit.</p>
-          <div className="my-4 border-t border-dashed border-[#e8b679]" />
-          <p className="text-xs font-bold uppercase tracking-wide text-[#a8561f]">Goes well with</p>
+          <div className="my-4 border-t border-dashed border-[#93b4f5]" />
+          <p className="text-xs font-bold uppercase tracking-wide text-[#1e3a8a]">Goes well with</p>
           <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4">
             {INCLUDED.map((i) => (
               <div key={i.label} className="flex flex-col items-center gap-2 rounded-2xl bg-white p-4 text-center">
-                <i.icon className="h-10 w-10 text-[#cf8526]" strokeWidth={1.5} />
+                <i.icon className="h-10 w-10 text-[#1d4ed8]" strokeWidth={1.5} />
                 <span className="text-sm font-semibold text-black">{i.label}</span>
               </div>
             ))}
@@ -140,14 +140,14 @@ export default function WheelServicePage() {
         <ul className="mt-4 grid gap-x-10 md:grid-cols-2">
           {OTHER.map((o) => (
             <li key={o.name} className="flex items-center justify-between gap-3 border-b border-black/[0.07] py-4">
-              <Link href={`/services/${o.slug}`} className="font-semibold text-black hover:text-[#b5651d]">
+              <Link href={`/services/${o.slug}`} className="font-semibold text-black hover:text-[#1d4ed8]">
                 {o.name}
               </Link>
               <a
                 href={buildWhatsAppLink(`Hi Punjab Tyre, what is the price of ${o.name.toLowerCase()} for my car?`)}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-lg border-2 border-[#e89b38] px-4 py-1.5 text-sm font-bold text-[#b5651d] hover:bg-[#e89b38] hover:text-white"
+                className="rounded-lg border-2 border-[#2563eb] px-4 py-1.5 text-sm font-bold text-[#1d4ed8] hover:bg-[#2563eb] hover:text-white"
               >
                 Ask price
               </a>
@@ -202,7 +202,7 @@ export default function WheelServicePage() {
             >
               <h3 className="text-lg font-bold text-black">{s.title}</h3>
               <p className="mt-1.5 text-sm leading-relaxed text-black/60">{s.text}</p>
-              <p className="mt-3 text-sm font-semibold text-[#cf8526]">{s.when}</p>
+              <p className="mt-3 text-sm font-semibold text-[#1d4ed8]">{s.when}</p>
             </Link>
           ))}
           <Link href="/alloy-wheels" className="rounded-2xl border border-black/[0.08] bg-white p-5 transition hover:shadow-md">
@@ -210,7 +210,7 @@ export default function WheelServicePage() {
             <p className="mt-1.5 text-sm leading-relaxed text-black/60">
               Authorised Advantec store plus Neo, Onyx, Incubus and Uno Minda alloys, fitted with your tyres.
             </p>
-            <p className="mt-3 text-sm font-semibold text-[#cf8526]">13 to 20 inch</p>
+            <p className="mt-3 text-sm font-semibold text-[#1d4ed8]">13 to 20 inch</p>
           </Link>
         </div>
       </section>

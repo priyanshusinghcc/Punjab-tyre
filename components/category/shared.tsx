@@ -14,10 +14,13 @@ export function CategoryHero({
   eyebrow: string;
   lines: [string, string];
   sub: string;
-  tone?: "red" | "amber";
+  tone?: "red" | "blue" | "dark";
 }) {
-  const bg =
-    tone === "red" ? "bg-gradient-to-br from-[#d32f2f] to-[#8e1b1b]" : "bg-gradient-to-br from-[#e89b38] to-[#a8561f]";
+  const bg = {
+    red: "bg-gradient-to-br from-[#d32f2f] to-[#8e1b1b]",
+    blue: "bg-gradient-to-br from-[#2563eb] to-[#1e3a8a]",
+    dark: "bg-gradient-to-br from-[#2a2c33] to-[#060607]",
+  }[tone];
   return (
     <section className="container-shell pt-5 sm:pt-6">
       <div className={`relative overflow-hidden rounded-3xl px-6 py-8 text-white sm:px-10 sm:py-10 ${bg}`}>
