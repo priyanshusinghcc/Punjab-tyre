@@ -51,11 +51,6 @@ export default function AlloyWheelsPage() {
               href={`/alloy-wheels/${b.slug}`}
               className="group relative flex flex-col items-center gap-3 rounded-2xl border border-black/[0.08] bg-white p-5 text-center transition hover:shadow-md"
             >
-              {b.authorised && (
-                <span className="absolute right-2 top-2 rounded-full bg-[#E53935]/10 px-2 py-0.5 text-[9px] font-bold uppercase text-[#D32F2F]">
-                  Authorised
-                </span>
-              )}
               <Image src={b.logo} alt={`${b.name} alloy wheels`} width={140} height={48} className="mt-2 h-10 w-auto" />
               <span className="text-sm font-semibold text-black group-hover:text-[#D32F2F]">{b.name} alloys</span>
             </Link>

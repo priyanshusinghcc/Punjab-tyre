@@ -211,11 +211,6 @@ export function AlloyBrowser({ brands }: { brands: AlloyBrandOption[] }) {
             }`}
           >
             <Image src={b.logo} alt={b.name} width={96} height={30} className="h-7 w-auto max-w-[92px] object-contain" />
-            {b.authorised && (
-              <span className="absolute -top-2 right-1 rounded-full bg-[#E53935] px-1.5 py-px text-[9px] font-bold uppercase text-white">
-                Authorised
-              </span>
-            )}
           </button>
         ))}
       </div>

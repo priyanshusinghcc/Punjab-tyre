@@ -14,11 +14,6 @@ function AlloyCard({ item }: { item: AlloyItem }) {
       className="group relative flex h-20 items-center justify-center rounded-2xl border border-black/[0.08] bg-white px-5 py-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-black/20 hover:shadow-md"
       title={`${item.name} alloy wheels in Rohtak`}
     >
-      {item.authorised && (
-        <span className="absolute -top-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-[#E53935] px-2 py-0.5 text-[9px] font-bold uppercase tracking-wide text-white">
-          Authorised
-        </span>
-      )}
       {item.logo && !hasError ? (
         <img
           src={item.logo}

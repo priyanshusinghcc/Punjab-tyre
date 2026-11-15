@@ -79,7 +79,6 @@ export default async function AlloyBrandPage({ params }: { params: Promise<{ slu
             caption={page.slug === "advantec" ? "Advantec brand wall inside our Rohtak store" : "Alloy wheel display at our Rohtak store"}
             logo={page.logo}
             logoAlt={`${page.name} alloy wheels logo`}
-            badge={page.authorised ? "Authorised store" : undefined}
           />
         </div>
       </section>
