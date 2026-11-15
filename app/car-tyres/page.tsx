@@ -16,7 +16,7 @@ const BRANDS: BrandOption[] = [
   { name: "Yokohama", logo: "/logos/yokohama.svg", authorised: true },
   { name: "CEAT", logo: "/logos/ceat.svg" },
   { name: "Apollo", logo: "/logos/apollo.png" },
-  { name: "MRF", logo: "/logos/mrf.png" },
+  { name: "MRF", logo: "/logos/mrf-logo.png", boxed: true },
   { name: "Michelin", logo: "/logos/michelin.svg" },
 ];
 

@@ -15,7 +15,7 @@ export type SizeEntry = {
   cars: { name: string; slug: string }[];
 };
 export type CarOption = { brand: string; model: string; slug: string; sizes: string[] };
-export type BrandOption = { name: string; logo: string; authorised?: boolean };
+export type BrandOption = { name: string; logo: string; authorised?: boolean; /** logo has its own coloured background: show it larger */ boxed?: boolean };
 
 const select =
   "h-12 w-full appearance-none rounded-xl border border-black/10 bg-white px-4 pr-10 text-[15px] text-black outline-none focus:border-black disabled:bg-[#b9bbc1] disabled:text-black/50";
@@ -162,7 +162,13 @@ export function TyreSizeBrowser({ sizes, cars, brands }: { sizes: SizeEntry[]; c
               brand === b.name ? "border-black" : "border-black/[0.08]"
             }`}
           >
-            <Image src={b.logo} alt={b.name} width={96} height={28} className="h-7 w-auto max-w-[88px] object-contain" />
+            <Image
+              src={b.logo}
+              alt={b.name}
+              width={96}
+              height={40}
+              className={`w-auto object-contain ${b.boxed ? "h-10 max-w-[100px] rounded" : "h-7 max-w-[88px]"}`}
+            />
           </button>
         ))}
       </div>
@@ -236,7 +242,13 @@ export function TyreSizeBrowser({ sizes, cars, brands }: { sizes: SizeEntry[]; c
                   {shownBrands.map((b) => (
                     <div key={b.name} className="grid grid-cols-[1fr_auto] items-center border-t border-black/[0.05] px-4 py-2.5">
                       <span className="flex items-center gap-2">
-                        <Image src={b.logo} alt={b.name} width={84} height={22} className="h-5 w-auto max-w-[84px] object-contain" />
+                        <Image
+                          src={b.logo}
+                          alt={b.name}
+                          width={84}
+                          height={30}
+                          className={`w-auto object-contain ${b.boxed ? "h-7 max-w-[60px] rounded-sm" : "h-5 max-w-[84px]"}`}
+                        />
                         {b.authorised && (
                           <span className="rounded bg-[#E53935]/10 px-1.5 py-0.5 text-[10px] font-bold uppercase text-[#D32F2F]">
                             Authorised

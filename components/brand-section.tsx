@@ -23,7 +23,11 @@ function BrandCard({
         <img
           src={item.logo}
           alt={`${item.name} tyre company logo`}
-          className="max-h-9 sm:max-h-10 w-auto max-w-[135px] sm:max-w-[150px] object-contain transition-transform duration-200 group-hover:scale-105"
+          className={`w-auto object-contain transition-transform duration-200 group-hover:scale-105 ${
+            item.logo.includes("mrf-logo")
+              ? "max-h-12 max-w-[96px] rounded sm:max-h-14 sm:max-w-[110px]"
+              : "max-h-9 max-w-[135px] sm:max-h-10 sm:max-w-[150px]"
+          }`}
           onError={() => setHasError(true)}
         />
       ) : (

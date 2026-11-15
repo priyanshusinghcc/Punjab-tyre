@@ -364,7 +364,7 @@ export const brandPages: BrandPage[] = [
   {
     slug: "mrf",
     name: "MRF",
-    logo: "/logos/mrf.png",
+    logo: "/logos/mrf-logo.png",
     authorised: false,
     vehicles: "car, SUV and bike",
     metaTitle: "MRF Tyres in Rohtak",

@@ -924,7 +924,7 @@ export const carTyreBrands: BrandItem[] = [
   { name: "CEAT", logo: "/logos/ceat.svg" },
   { name: "Yokohama", logo: "/logos/yokohama.svg" },
   { name: "Apollo", logo: "/logos/apollo.png" },
-  { name: "MRF", logo: "/logos/mrf.png" },
+  { name: "MRF", logo: "/logos/mrf-logo.png" },
   { name: "Michelin", logo: "/logos/michelin.svg" },
 ];
 
@@ -933,7 +933,7 @@ export const bikeTyreBrands: BrandItem[] = [
   { name: "Apollo", logo: "/logos/apollo.png" },
   { name: "Michelin", logo: "/logos/michelin.svg" },
   { name: "TVS", logo: "/logos/tvs.png" },
-  { name: "MRF", logo: "/logos/mrf.png" },
+  { name: "MRF", logo: "/logos/mrf-logo.png" },
 ];
 
 export const services = [
